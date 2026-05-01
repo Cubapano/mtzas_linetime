@@ -15,10 +15,6 @@
             text-align: center;
             color: #333;
         }
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
         .evento {
             background: white;
             margin: 15px 0;
@@ -57,72 +53,84 @@
     </div>
 
     <script>
-        // Función principal: carga los datos y los muestra
         async function cargarEfemerides() {
             const contenedor = document.getElementById('contenedor-eventos');
             
             try {
-                // 1. Intentar cargar el archivo JSON
                 const respuesta = await fetch('efemerides.json');
                 
-                // 2. Verificar si el archivo existe
                 if (!respuesta.ok) {
-                    throw new Error(`No se pudo cargar efemerides.json. Código: ${respuesta.status}`);
+                    throw new Error(`No se pudo cargar el archivo. Código: ${respuesta.status}`);
                 }
                 
-                // 3. Convertir la respuesta a objeto JavaScript
                 const eventos = await respuesta.json();
                 
-                // 4. Ordenar eventos por fecha (del más antiguo al más reciente)
-                eventos.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
-                
-                // 5. Limpiar el mensaje de "Cargando..."
                 contenedor.innerHTML = '';
                 
-                // 6. Si no hay eventos, mostrar mensaje
-                if (eventos.length === 0) {
+                if (!eventos || eventos.length === 0) {
                     contenedor.innerHTML = '<div class="error">No hay eventos para mostrar</div>';
                     return;
                 }
                 
-                // 7. Generar el HTML para cada evento
-                eventos.forEach(evento => {
-                    // Convertir fecha YYYY-MM-DD a formato legible (ej: 12 de Octubre de 1693)
-                    const fechaObj = new Date(evento.fecha);
-                    const dia = fechaObj.getDate();
-                    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-                    const mes = meses[fechaObj.getMonth()];
-                    const anio = fechaObj.getFullYear();
-                    const fechaLegible = `${dia} de ${mes} de ${anio}`;
+                console.log('Eventos cargados:', eventos);
+                
+                let eventosMostrados = 0;
+                
+                for (let i = 0; i < eventos.length; i++) {
+                    const evento = eventos[i];
                     
-                    // Crear el elemento HTML para este evento
+                    // 🔧 CORREGIDO: Ahora busca "FECHA" (mayúsculas) en lugar de "fecha"
+                    if (!evento.FECHA) {
+                        console.error(`Evento ${i} no tiene fecha:`, evento);
+                        continue;
+                    }
+                    
+                    let fechaLegible = 'Fecha desconocida';
+                    
+                    // Formato YYYY-MM-DD
+                    if (evento.FECHA && evento.FECHA.match(/^\d{4}-\d{1,2}-\d{1,2}$/)) {
+                        const partes = evento.FECHA.split('-');
+                        const anio = parseInt(partes[0]);
+                        const mes = parseInt(partes[1]) - 1;
+                        const dia = parseInt(partes[2]);
+                        
+                        if (!isNaN(anio) && !isNaN(mes) && !isNaN(dia)) {
+                            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+                            fechaLegible = `${dia} de ${meses[mes]} de ${anio}`;
+                        }
+                    }
+                    
+                    // 🔧 CORREGIDO: Ahora busca "EFEMERIDE" en lugar de "evento"
+                    const textoEvento = evento.EFEMERIDE || 'Sin descripción';
+                    
                     const divEvento = document.createElement('div');
                     divEvento.className = 'evento';
                     divEvento.innerHTML = `
                         <div class="fecha">📆 ${fechaLegible}</div>
-                        <div class="descripcion">${evento.evento}</div>
+                        <div class="descripcion">${textoEvento}</div>
                     `;
                     contenedor.appendChild(divEvento);
-                });
+                    eventosMostrados++;
+                }
+                
+                if (eventosMostrados === 0) {
+                    contenedor.innerHTML = `<div class="error">
+                        ❌ No se pudo mostrar ningún evento.<br>
+                        <small>Verifica que el archivo JSON tenga el formato correcto</small>
+                    </div>`;
+                }
                 
             } catch (error) {
-                // Si algo falla, mostrar el error de forma amigable
                 contenedor.innerHTML = `
                     <div class="error">
                         ❌ Error al cargar las efemérides<br>
-                        <small>${error.message}</small><br><br>
-                        <strong>Posibles soluciones:</strong><br>
-                        - ¿El archivo se llama exactamente <code>efemerides.json</code>?<br>
-                        - ¿Está en la misma carpeta que <code>index.html</code>?<br>
-                        - ¿El JSON tiene el formato correcto?<br>
-                        - Prueba a abrir la consola con F12 para ver más detalles
+                        <small>${error.message}</small>
                     </div>
                 `;
-                console.error('Error detallado:', error);
+                console.error('Error:', error);
             }
         }
         
-        // Ejecutar la función cuando la página termine de cargar
         window.addEventListener('DOMContentLoaded', cargarEfemerides);
     </script>
 </body>
