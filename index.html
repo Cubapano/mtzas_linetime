@@ -26,6 +26,58 @@
             margin-bottom: 20px;
         }
         
+        /* Estilos del buscador */
+        .buscador {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        #inputBusqueda {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        #inputBusqueda:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102,126,234,0.3);
+        }
+        
+        #btnBuscar, #btnLimpiar {
+            padding: 12px 25px;
+            font-size: 1em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #btnBuscar {
+            background: #667eea;
+            color: white;
+        }
+        
+        #btnBuscar:hover {
+            background: #764ba2;
+        }
+        
+        #btnLimpiar {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        #btnLimpiar:hover {
+            background: #ddd;
+        }
+        
         .navegador {
             display: flex;
             align-items: center;
@@ -94,6 +146,15 @@
             font-size: 0.9em;
         }
         
+        .resultado-busqueda {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
         .error {
             color: #c62828;
             padding: 20px;
@@ -105,6 +166,13 @@
 <body>
     <div class="contenedor">
         <h1>📅 Navegador Cronológico</h1>
+        
+        <!-- Buscador -->
+        <div class="buscador">
+            <input type="text" id="inputBusqueda" placeholder="Buscar por palabra clave... ej: fundación, colon, revolución">
+            <button id="btnBuscar">🔍 Buscar</button>
+            <button id="btnLimpiar">✖ Limpiar</button>
+        </div>
         
         <div class="navegador">
             <button id="btnAnterior" title="Evento anterior">◀</button>
@@ -118,8 +186,11 @@
     </div>
 
     <script>
-        let eventos = [];
+        let eventosOriginales = [];  // Guardar todos los eventos
+        let eventosFiltrados = [];    // Eventos después de búsqueda
         let indiceActual = 0;
+        let modoBusqueda = false;
+        let textoBusqueda = '';
         
         async function cargarEventos() {
             const contenedorEvento = document.getElementById('contenedor-evento');
@@ -131,20 +202,22 @@
                     throw new Error(`No se pudo cargar el archivo. Código: ${respuesta.status}`);
                 }
                 
-                eventos = await respuesta.json();
+                eventosOriginales = await respuesta.json();
                 
-                if (!eventos || eventos.length === 0) {
+                if (!eventosOriginales || eventosOriginales.length === 0) {
                     contenedorEvento.innerHTML = '<div class="error">No hay eventos para mostrar</div>';
                     return;
                 }
                 
-                // Ordenar eventos usando la función especial para fechas incompletas
-                eventos.sort((a, b) => {
+                // Ordenar eventos originales por fecha
+                eventosOriginales.sort((a, b) => {
                     const fechaA = parsearFechaParaOrden(a.FECHA);
                     const fechaB = parsearFechaParaOrden(b.FECHA);
                     return fechaA - fechaB;
                 });
                 
+                // Inicialmente mostrar todos
+                eventosFiltrados = [...eventosOriginales];
                 indiceActual = 0;
                 mostrarEvento(indiceActual);
                 
@@ -159,7 +232,6 @@
             }
         }
         
-        // Función para convertir fechas como "1789-06-00" a un objeto Date válido
         function parsearFechaParaOrden(fechaStr) {
             const partes = fechaStr.split('-');
             let anio = parseInt(partes[0]);
@@ -181,17 +253,14 @@
             const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
                           'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
             
-            // Caso 1: Solo año
             if (mesNumero === 0 && diaNumero === 0) {
                 return `Año ${anio}`;
             }
             
-            // Caso 2: Mes y año
             if (diaNumero === 0 && mesNumero >= 1 && mesNumero <= 12) {
                 return `${meses[mesNumero - 1]} de ${anio}`;
             }
             
-            // Caso 3: Fecha completa
             if (diaNumero >= 1 && diaNumero <= 31 && mesNumero >= 1 && mesNumero <= 12) {
                 return `${diaNumero} de ${meses[mesNumero - 1]} de ${anio}`;
             }
@@ -199,11 +268,57 @@
             return `${anio}`;
         }
         
-        function mostrarEvento(indice) {
-            if (indice < 0) indice = 0;
-            if (indice >= eventos.length) indice = eventos.length - 1;
+        function buscarEventos() {
+            const input = document.getElementById('inputBusqueda');
+            textoBusqueda = input.value.trim().toLowerCase();
             
-            const evento = eventos[indice];
+            if (textoBusqueda === '') {
+                // Si está vacío, mostrar todos
+                eventosFiltrados = [...eventosOriginales];
+                modoBusqueda = false;
+                document.getElementById('contenedor-evento').innerHTML = '';
+            } else {
+                // Filtrar eventos que contengan la palabra en EFEMERIDE
+                eventosFiltrados = eventosOriginales.filter(evento => 
+                    evento.EFEMERIDE.toLowerCase().includes(textoBusqueda)
+                );
+                modoBusqueda = true;
+            }
+            
+            if (eventosFiltrados.length === 0) {
+                // No hay resultados
+                const contenedor = document.getElementById('contenedor-evento');
+                contenedor.innerHTML = `
+                    <div class="error">
+                        🔍 No se encontraron eventos que contengan "<strong>${textoBusqueda}</strong>"<br>
+                        <small>Intenta con otra palabra clave</small>
+                    </div>
+                `;
+                document.getElementById('fechaActual').textContent = 'Sin resultados';
+                return;
+            }
+            
+            // Resetear al primer resultado
+            indiceActual = 0;
+            mostrarEvento(indiceActual);
+        }
+        
+        function limpiarBusqueda() {
+            document.getElementById('inputBusqueda').value = '';
+            eventosFiltrados = [...eventosOriginales];
+            modoBusqueda = false;
+            textoBusqueda = '';
+            indiceActual = 0;
+            mostrarEvento(indiceActual);
+        }
+        
+        function mostrarEvento(indice) {
+            if (!eventosFiltrados || eventosFiltrados.length === 0) return;
+            
+            if (indice < 0) indice = 0;
+            if (indice >= eventosFiltrados.length) indice = eventosFiltrados.length - 1;
+            
+            const evento = eventosFiltrados[indice];
             const fechaLegible = formatearFechaLegible(evento.FECHA);
             
             document.getElementById('fechaActual').textContent = fechaLegible;
@@ -212,14 +327,25 @@
             contenedorEvento.style.animation = 'none';
             
             setTimeout(() => {
-                contenedorEvento.innerHTML = `
+                let html = '';
+                
+                // Mostrar info de búsqueda si estamos en modo búsqueda
+                if (modoBusqueda) {
+                    html += `<div class="resultado-busqueda">
+                        🔍 Mostrando ${eventosFiltrados.length} resultado(s) para: "<strong>${textoBusqueda}</strong>"
+                    </div>`;
+                }
+                
+                html += `
                     <div class="evento">
                         <div class="descripcion">📖 ${evento.EFEMERIDE}</div>
                     </div>
                     <div class="contador">
-                        Evento ${indice + 1} de ${eventos.length}
+                        ${modoBusqueda ? 'Resultado ' : 'Evento '} ${indice + 1} de ${eventosFiltrados.length}
                     </div>
                 `;
+                
+                contenedorEvento.innerHTML = html;
                 contenedorEvento.style.animation = 'aparecer 0.5s ease';
             }, 10);
         }
@@ -236,7 +362,7 @@
         }
         
         function eventoSiguiente() {
-            if (indiceActual < eventos.length - 1) {
+            if (indiceActual < eventosFiltrados.length - 1) {
                 indiceActual++;
                 mostrarEvento(indiceActual);
             } else {
@@ -246,8 +372,18 @@
             }
         }
         
+        // Conectar eventos a los botones
         document.getElementById('btnAnterior').addEventListener('click', eventoAnterior);
         document.getElementById('btnSiguiente').addEventListener('click', eventoSiguiente);
+        document.getElementById('btnBuscar').addEventListener('click', buscarEventos);
+        document.getElementById('btnLimpiar').addEventListener('click', limpiarBusqueda);
+        
+        // Permitir buscar presionando Enter
+        document.getElementById('inputBusqueda').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                buscarEventos();
+            }
+        });
         
         window.addEventListener('DOMContentLoaded', cargarEventos);
     </script>
