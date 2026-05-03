@@ -94,15 +94,6 @@
             font-size: 0.9em;
         }
         
-        .certeza-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.7em;
-            margin-top: 10px;
-        }
-        
         .error {
             color: #c62828;
             padding: 20px;
@@ -147,7 +138,7 @@
                     return;
                 }
                 
-                // Función especial para ordenar fechas incompletas
+                // Ordenar eventos usando la función especial para fechas incompletas
                 eventos.sort((a, b) => {
                     const fechaA = parsearFechaParaOrden(a.FECHA);
                     const fechaB = parsearFechaParaOrden(b.FECHA);
@@ -172,13 +163,10 @@
         function parsearFechaParaOrden(fechaStr) {
             const partes = fechaStr.split('-');
             let anio = parseInt(partes[0]);
-            let mes = parseInt(partes[1]) - 1; // Meses en JS van 0-11
+            let mes = parseInt(partes[1]) - 1;
             let dia = parseInt(partes[2]);
             
-            // Si mes es 00 o inválido, usar enero (mes 0)
             if (isNaN(mes) || mes < 0) mes = 0;
-            
-            // Si día es 00 o inválido, usar día 1
             if (isNaN(dia) || dia < 1) dia = 1;
             
             return new Date(anio, mes, dia);
@@ -193,12 +181,12 @@
             const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
                           'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
             
-            // Caso 1: Solo año (mes y día son 00)
+            // Caso 1: Solo año
             if (mesNumero === 0 && diaNumero === 0) {
                 return `Año ${anio}`;
             }
             
-            // Caso 2: Mes y año (día es 00)
+            // Caso 2: Mes y año
             if (diaNumero === 0 && mesNumero >= 1 && mesNumero <= 12) {
                 return `${meses[mesNumero - 1]} de ${anio}`;
             }
@@ -208,18 +196,7 @@
                 return `${diaNumero} de ${meses[mesNumero - 1]} de ${anio}`;
             }
             
-            // Caso por defecto (no debería pasar)
             return `${anio}`;
-        }
-        
-        function obtenerCerteza(fechaISO) {
-            const partes = fechaISO.split('-');
-            const mes = parseInt(partes[1]);
-            const dia = parseInt(partes[2]);
-            
-            if (mes === 0 && dia === 0) return "📅 Solo año conocido";
-            if (dia === 0) return "📆 Mes y año conocidos";
-            return "✅ Fecha exacta";
         }
         
         function mostrarEvento(indice) {
@@ -228,7 +205,6 @@
             
             const evento = eventos[indice];
             const fechaLegible = formatearFechaLegible(evento.FECHA);
-            const certezaTexto = obtenerCerteza(evento.FECHA);
             
             document.getElementById('fechaActual').textContent = fechaLegible;
             
@@ -239,7 +215,6 @@
                 contenedorEvento.innerHTML = `
                     <div class="evento">
                         <div class="descripcion">📖 ${evento.EFEMERIDE}</div>
-                        <div class="certeza-badge">${certezaTexto}</div>
                     </div>
                     <div class="contador">
                         Evento ${indice + 1} de ${eventos.length}
