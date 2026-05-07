@@ -7,6 +7,7 @@
     <style>
         * {
             box-sizing: border-box;
+            user-select: none; /* Evita selección accidental en móvil */
         }
         
         body {
@@ -15,27 +16,31 @@
             padding: 16px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .contenedor {
             background: white;
-            border-radius: 24px;
-            padding: 20px;
+            border-radius: 32px;
+            padding: 24px 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 600px;
+            max-width: 500px;
+            width: 100%;
             margin: 0 auto;
         }
         
         h1 {
             color: #333;
             margin: 0 0 20px 0;
-            font-size: 1.6em;
+            font-size: 1.5em;
             text-align: center;
         }
         
-        /* Buscador - botones grandes */
+        /* Buscador */
         .buscador {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             display: flex;
             gap: 10px;
             justify-content: center;
@@ -45,10 +50,11 @@
             flex: 1;
             padding: 14px 16px;
             font-size: 16px;
-            border: 2px solid #ddd;
+            border: 2px solid #e0e0e0;
             border-radius: 50px;
             outline: none;
             background: white;
+            text-align: center;
         }
         
         #inputBusqueda:focus {
@@ -60,7 +66,7 @@
             height: 52px;
             border-radius: 50%;
             border: none;
-            font-size: 1.4em;
+            font-size: 1.3em;
             cursor: pointer;
             transition: all 0.2s ease;
             background: #f0f0f0;
@@ -72,55 +78,141 @@
             color: white;
         }
         
-        #btnBuscar:hover, #btnLimpiar:hover {
-            transform: scale(0.96);
+        #btnLimpiar {
+            background: #f0f0f0;
+            color: #666;
         }
         
-        /* Navegador principal - botones grandes */
-        .navegador {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .nav-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            font-size: 2em;
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-        
-        .nav-btn:active {
+        .btn-icono:active {
             transform: scale(0.95);
         }
         
-        #fechaActual {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #667eea;
-            background: #f0f0f0;
-            padding: 14px 20px;
-            border-radius: 50px;
-            min-width: 200px;
-            text-align: center;
+        /* ===== SELECTOR DE 3 EVENTOS ===== */
+        .selector-tres {
+            margin: 20px 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        /* Evento actual - área principal */
-        .evento {
+        /* Botón arriba */
+        .btn-nav-up {
+            background: #667eea;
+            color: white;
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 8px;
+        }
+        
+        .btn-nav-up:active {
+            transform: scale(0.95);
+        }
+        
+        /* Lista de 3 eventos */
+        .eventos-lista {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background: #f5f5f5;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+        
+        .evento-item {
+            padding: 16px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .evento-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Evento superior (difuminado) */
+        .evento-item.top {
+            background: #f0f0f0;
+            opacity: 0.6;
+            transform: scale(0.95);
+        }
+        
+        /* Evento central (ACTIVO - destacado) */
+        .evento-item.center {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1);
+            box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+        }
+        
+        .evento-item.center .item-fecha {
+            color: rgba(255,255,255,0.9);
+            font-weight: bold;
+        }
+        
+        .evento-item.center .item-descripcion {
+            color: white;
+        }
+        
+        /* Evento inferior (difuminado) */
+        .evento-item.bottom {
+            background: #f0f0f0;
+            opacity: 0.6;
+            transform: scale(0.95);
+        }
+        
+        .item-fecha {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        .item-descripcion {
+            font-size: 0.8em;
+            color: #555;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .evento-item.center .item-descripcion {
+            white-space: normal;
+            line-height: 1.3;
+        }
+        
+        /* Botón abajo */
+        .btn-nav-down {
+            background: #667eea;
+            color: white;
+            border: none;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-top: 8px;
+        }
+        
+        .btn-nav-down:active {
+            transform: scale(0.95);
+        }
+        
+        /* Detalle del evento resaltado */
+        .detalle-evento {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 24px;
-            border-radius: 20px;
-            margin: 15px 0 20px;
+            border-radius: 24px;
+            margin: 20px 0 15px;
             animation: aparecer 0.3s ease;
         }
         
@@ -135,116 +227,34 @@
             }
         }
         
-        .descripcion {
+        .detalle-fecha {
             font-size: 1.2em;
-            line-height: 1.5;
-            margin: 0;
+            font-weight: bold;
+            margin-bottom: 12px;
+            text-align: center;
         }
         
-        .contador {
+        .detalle-descripcion {
+            font-size: 1.1em;
+            line-height: 1.5;
+            text-align: center;
+        }
+        
+        .contador-info {
             text-align: center;
             color: #999;
-            margin-top: 15px;
-            font-size: 0.9em;
+            margin-top: 12px;
+            font-size: 0.85em;
         }
         
         .resultado-busqueda {
             background: #e3f2fd;
             color: #1976d2;
-            padding: 10px 16px;
+            padding: 8px 16px;
             border-radius: 30px;
             margin-bottom: 15px;
-            font-size: 0.9em;
+            font-size: 0.85em;
             text-align: center;
-            display: inline-block;
-            width: auto;
-        }
-        
-        /* === LÍNEA DE TIEMPO VERTICAL === */
-        .timeline-vertical {
-            margin: 20px 0;
-            max-height: 280px;
-            overflow-y: auto;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-        }
-        
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 12px 16px;
-            margin: 4px 0;
-            border-radius: 40px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background: #f9f9f9;
-        }
-        
-        .timeline-item.activo {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .timeline-item.activo .timeline-fecha,
-        .timeline-item.activo .timeline-texto {
-            color: white;
-        }
-        
-        .timeline-item:active {
-            transform: scale(0.98);
-        }
-        
-        .timeline-marcador {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #667eea;
-            flex-shrink: 0;
-        }
-        
-        .timeline-item.activo .timeline-marcador {
-            background: white;
-            width: 14px;
-            height: 14px;
-        }
-        
-        .timeline-fecha {
-            font-size: 0.85em;
-            font-weight: bold;
-            color: #667eea;
-            min-width: 70px;
-            flex-shrink: 0;
-        }
-        
-        .timeline-item.activo .timeline-fecha {
-            color: white;
-        }
-        
-        .timeline-texto {
-            font-size: 0.85em;
-            color: #555;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            flex: 1;
-        }
-        
-        .timeline-item.activo .timeline-texto {
-            color: white;
-        }
-        
-        /* Scroll personalizado */
-        .timeline-vertical::-webkit-scrollbar {
-            width: 4px;
-        }
-        .timeline-vertical::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 4px;
-        }
-        .timeline-vertical::-webkit-scrollbar-thumb {
-            background: #667eea;
-            border-radius: 4px;
         }
         
         .error {
@@ -255,30 +265,27 @@
             text-align: center;
         }
         
-        /* Ajustes para móvil muy pequeño */
+        /* Animación para cambios */
+        .evento-item {
+            transition: all 0.25s ease;
+        }
+        
+        /* Móvil pequeño */
         @media (max-width: 480px) {
             .contenedor {
                 padding: 16px;
             }
-            .nav-btn {
-                width: 56px;
-                height: 56px;
-                font-size: 1.8em;
-            }
-            #fechaActual {
-                font-size: 1.1em;
+            .evento-item {
                 padding: 12px 16px;
-                min-width: 160px;
             }
-            .descripcion {
+            .detalle-evento {
+                padding: 18px;
+            }
+            .detalle-descripcion {
                 font-size: 1em;
             }
-            .timeline-fecha {
-                min-width: 60px;
-                font-size: 0.75em;
-            }
-            .timeline-texto {
-                font-size: 0.75em;
+            .item-descripcion {
+                font-size: 0.7em;
             }
         }
     </style>
@@ -294,28 +301,40 @@
             <button id="btnLimpiar" class="btn-icono" title="Limpiar">✖</button>
         </div>
         
-        <!-- Línea de tiempo VERTICAL -->
-        <div class="timeline-vertical" id="timelineVertical">
-            <!-- Se llena con JavaScript -->
+        <!-- Selector de 3 eventos -->
+        <div class="selector-tres">
+            <button id="btnUp" class="btn-nav-up" title="Anterior">▲</button>
+            
+            <div class="eventos-lista" id="eventosLista">
+                <div class="evento-item top" id="eventoTop">
+                    <div class="item-fecha">...</div>
+                    <div class="item-descripcion">...</div>
+                </div>
+                <div class="evento-item center" id="eventoCenter">
+                    <div class="item-fecha">...</div>
+                    <div class="item-descripcion">...</div>
+                </div>
+                <div class="evento-item bottom" id="eventoBottom">
+                    <div class="item-fecha">...</div>
+                    <div class="item-descripcion">...</div>
+                </div>
+            </div>
+            
+            <button id="btnDown" class="btn-nav-down" title="Siguiente">▼</button>
         </div>
         
-        <!-- Navegador principal -->
-        <div class="navegador">
-            <button id="btnAnterior" class="nav-btn" title="Anterior">◀</button>
-            <div id="fechaActual">Cargando...</div>
-            <button id="btnSiguiente" class="nav-btn" title="Siguiente">▶</button>
+        <!-- Detalle del evento central (resaltado) -->
+        <div id="detalleContainer">
+            <div class="detalle-evento" style="text-align:center; padding:30px;">Cargando...</div>
         </div>
         
-        <!-- Evento actual -->
-        <div id="contenedor-evento">
-            <div class="cargando" style="text-align:center; padding:20px;">Cargando eventos...</div>
-        </div>
+        <div id="extraInfo" class="contador-info"></div>
     </div>
 
     <script>
         let eventosOriginales = [];
         let eventosFiltrados = [];
-        let indiceActual = 0;
+        let indiceActual = 0;  // Índice del evento CENTRAL (el seleccionado)
         let modoBusqueda = false;
         let textoBusqueda = '';
         
@@ -327,7 +346,7 @@
                 eventosOriginales = await respuesta.json();
                 
                 if (!eventosOriginales || eventosOriginales.length === 0) {
-                    document.getElementById('contenedor-evento').innerHTML = '<div class="error">No hay eventos</div>';
+                    document.getElementById('detalleContainer').innerHTML = '<div class="error">No hay eventos</div>';
                     return;
                 }
                 
@@ -341,11 +360,10 @@
                 eventosFiltrados = [...eventosOriginales];
                 indiceActual = 0;
                 
-                actualizarTimelineVertical();
-                mostrarEvento(indiceActual);
+                actualizarVista();
                 
             } catch (error) {
-                document.getElementById('contenedor-evento').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById('detalleContainer').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
             }
         }
         
@@ -382,46 +400,111 @@
             return `${meses[mesNumero-1]} ${anio}`;
         }
         
-        function acortarTexto(texto, maxLen = 45) {
+        function acortarTexto(texto, maxLen = 35) {
             if (texto.length <= maxLen) return texto;
             return texto.substring(0, maxLen) + '…';
         }
         
-        function actualizarTimelineVertical() {
-            const container = document.getElementById('timelineVertical');
-            if (!container) return;
+        function obtenerEventoPorIndice(indice) {
+            if (indice < 0 || indice >= eventosFiltrados.length) return null;
+            return eventosFiltrados[indice];
+        }
+        
+        function actualizarVista() {
+            if (!eventosFiltrados.length) return;
             
-            if (eventosFiltrados.length === 0) {
-                container.innerHTML = '<div style="padding:20px;text-align:center;color:#999;">Sin resultados</div>';
-                return;
+            // Obtener los 3 eventos: anterior, actual, siguiente
+            const eventoAnterior = obtenerEventoPorIndice(indiceActual - 1);
+            const eventoActual = eventosFiltrados[indiceActual];
+            const eventoSiguiente = obtenerEventoPorIndice(indiceActual + 1);
+            
+            // Actualizar elemento superior
+            const topDiv = document.getElementById('eventoTop');
+            if (eventoAnterior) {
+                topDiv.style.display = 'block';
+                topDiv.querySelector('.item-fecha').textContent = formatearFechaCorta(eventoAnterior.FECHA);
+                topDiv.querySelector('.item-descripcion').textContent = acortarTexto(eventoAnterior.EFEMERIDE);
+            } else {
+                topDiv.style.display = 'block';
+                topDiv.querySelector('.item-fecha').textContent = '---';
+                topDiv.querySelector('.item-descripcion').textContent = 'No hay evento anterior';
+                topDiv.style.opacity = '0.3';
             }
             
-            container.innerHTML = eventosFiltrados.map((evento, idx) => `
-                <div class="timeline-item ${idx === indiceActual ? 'activo' : ''}" data-idx="${idx}">
-                    <div class="timeline-marcador"></div>
-                    <div class="timeline-fecha">${formatearFechaCorta(evento.FECHA)}</div>
-                    <div class="timeline-texto">${acortarTexto(evento.EFEMERIDE, 40)}</div>
+            // Actualizar elemento central (ACTIVO)
+            const centerDiv = document.getElementById('eventoCenter');
+            centerDiv.querySelector('.item-fecha').textContent = formatearFechaCorta(eventoActual.FECHA);
+            centerDiv.querySelector('.item-descripcion').textContent = acortarTexto(eventoActual.EFEMERIDE, 30);
+            
+            // Actualizar elemento inferior
+            const bottomDiv = document.getElementById('eventoBottom');
+            if (eventoSiguiente) {
+                bottomDiv.style.display = 'block';
+                bottomDiv.querySelector('.item-fecha').textContent = formatearFechaCorta(eventoSiguiente.FECHA);
+                bottomDiv.querySelector('.item-descripcion').textContent = acortarTexto(eventoSiguiente.EFEMERIDE);
+            } else {
+                bottomDiv.style.display = 'block';
+                bottomDiv.querySelector('.item-fecha').textContent = '---';
+                bottomDiv.querySelector('.item-descripcion').textContent = 'No hay evento siguiente';
+                bottomDiv.style.opacity = '0.3';
+            }
+            
+            // Actualizar detalle abajo
+            const fechaLegible = formatearFechaLegible(eventoActual.FECHA);
+            let html = '';
+            if (modoBusqueda) {
+                html += `<div class="resultado-busqueda">🔍 ${eventosFiltrados.length} resultado(s): "${textoBusqueda}"</div>`;
+            }
+            html += `
+                <div class="detalle-evento">
+                    <div class="detalle-fecha">📆 ${fechaLegible}</div>
+                    <div class="detalle-descripcion">📖 ${eventoActual.EFEMERIDE}</div>
                 </div>
-            `).join('');
+                <div class="contador-info">
+                    ${modoBusqueda ? 'Resultado ' : 'Evento '} ${indiceActual + 1} de ${eventosFiltrados.length}
+                </div>
+            `;
+            document.getElementById('detalleContainer').innerHTML = html;
             
-            // Evento click en cada item
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const idx = parseInt(item.dataset.idx);
-                    if (!isNaN(idx) && idx >= 0 && idx < eventosFiltrados.length) {
-                        indiceActual = idx;
-                        mostrarEvento(indiceActual);
-                        actualizarTimelineVertical();
-                        // Auto-scroll al elemento activo
-                        const activo = document.querySelector('.timeline-item.activo');
-                        if (activo) activo.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                });
-            });
+            // Actualizar extraInfo
+            const extra = document.getElementById('extraInfo');
+            if (extra) extra.innerHTML = '';
+        }
+        
+        function moverArriba() {
+            if (indiceActual > 0) {
+                indiceActual--;
+                actualizarVista();
+                animarBotones('up');
+            } else {
+                // Feedback visual si está al inicio
+                const btn = document.getElementById('btnUp');
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => { btn.style.transform = ''; }, 200);
+            }
+        }
+        
+        function moverAbajo() {
+            if (indiceActual < eventosFiltrados.length - 1) {
+                indiceActual++;
+                actualizarVista();
+                animarBotones('down');
+            } else {
+                const btn = document.getElementById('btnDown');
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => { btn.style.transform = ''; }, 200);
+            }
+        }
+        
+        function animarBotones(direccion) {
+            const btn = document.getElementById(direccion === 'up' ? 'btnUp' : 'btnDown');
+            btn.style.transform = 'scale(0.9)';
+            setTimeout(() => { btn.style.transform = ''; }, 150);
             
-            // Scroll automático al elemento activo
-            const activo = document.querySelector('.timeline-item.activo');
-            if (activo) activo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Animación sutil en los eventos
+            const center = document.getElementById('eventoCenter');
+            center.style.transform = 'scale(0.98)';
+            setTimeout(() => { center.style.transform = ''; }, 150);
         }
         
         function buscarEventos() {
@@ -439,15 +522,18 @@
             }
             
             if (eventosFiltrados.length === 0) {
-                document.getElementById('contenedor-evento').innerHTML = `<div class="error">🔍 No se encontró "${textoBusqueda}"</div>`;
-                document.getElementById('fechaActual').textContent = 'Sin resultados';
-                document.getElementById('timelineVertical').innerHTML = '<div style="padding:20px;text-align:center;color:#999;">Sin resultados</div>';
+                document.getElementById('detalleContainer').innerHTML = `<div class="error">🔍 No se encontró "${textoBusqueda}"</div>`;
+                document.getElementById('eventoTop').querySelector('.item-fecha').textContent = '---';
+                document.getElementById('eventoTop').querySelector('.item-descripcion').textContent = 'Sin resultados';
+                document.getElementById('eventoCenter').querySelector('.item-fecha').textContent = '---';
+                document.getElementById('eventoCenter').querySelector('.item-descripcion').textContent = 'Sin resultados';
+                document.getElementById('eventoBottom').querySelector('.item-fecha').textContent = '---';
+                document.getElementById('eventoBottom').querySelector('.item-descripcion').textContent = 'Sin resultados';
                 return;
             }
             
             indiceActual = 0;
-            actualizarTimelineVertical();
-            mostrarEvento(indiceActual);
+            actualizarVista();
         }
         
         function limpiarBusqueda() {
@@ -456,69 +542,21 @@
             modoBusqueda = false;
             textoBusqueda = '';
             indiceActual = 0;
-            actualizarTimelineVertical();
-            mostrarEvento(indiceActual);
+            actualizarVista();
         }
         
-        function mostrarEvento(indice) {
-            if (!eventosFiltrados.length) return;
-            
-            if (indice < 0) indice = 0;
-            if (indice >= eventosFiltrados.length) indice = eventosFiltrados.length - 1;
-            indiceActual = indice;
-            
-            const evento = eventosFiltrados[indiceActual];
-            const fechaLegible = formatearFechaLegible(evento.FECHA);
-            document.getElementById('fechaActual').textContent = fechaLegible;
-            
-            const contenedor = document.getElementById('contenedor-evento');
-            contenedor.style.animation = 'none';
-            
-            setTimeout(() => {
-                let html = '';
-                if (modoBusqueda) {
-                    html += `<div style="text-align:center;"><div class="resultado-busqueda">🔍 ${eventosFiltrados.length} resultado(s): "${textoBusqueda}"</div></div>`;
-                }
-                html += `
-                    <div class="evento">
-                        <div class="descripcion">📖 ${evento.EFEMERIDE}</div>
-                    </div>
-                    <div class="contador">
-                        ${modoBusqueda ? 'Resultado ' : 'Evento '} ${indiceActual + 1} de ${eventosFiltrados.length}
-                    </div>
-                `;
-                contenedor.innerHTML = html;
-                contenedor.style.animation = 'aparecer 0.3s ease';
-            }, 10);
-            
-            actualizarTimelineVertical();
-        }
+        // Click en los items laterales para saltar
+        document.getElementById('eventoTop').addEventListener('click', () => {
+            if (indiceActual > 0) moverArriba();
+        });
         
-        function eventoAnterior() {
-            if (indiceActual > 0) {
-                indiceActual--;
-                mostrarEvento(indiceActual);
-            } else {
-                const btn = document.getElementById('btnAnterior');
-                btn.style.transform = 'scale(0.9)';
-                setTimeout(() => { btn.style.transform = ''; }, 150);
-            }
-        }
-        
-        function eventoSiguiente() {
-            if (indiceActual < eventosFiltrados.length - 1) {
-                indiceActual++;
-                mostrarEvento(indiceActual);
-            } else {
-                const btn = document.getElementById('btnSiguiente');
-                btn.style.transform = 'scale(0.9)';
-                setTimeout(() => { btn.style.transform = ''; }, 150);
-            }
-        }
+        document.getElementById('eventoBottom').addEventListener('click', () => {
+            if (indiceActual < eventosFiltrados.length - 1) moverAbajo();
+        });
         
         // Event listeners
-        document.getElementById('btnAnterior').addEventListener('click', eventoAnterior);
-        document.getElementById('btnSiguiente').addEventListener('click', eventoSiguiente);
+        document.getElementById('btnUp').addEventListener('click', moverArriba);
+        document.getElementById('btnDown').addEventListener('click', moverAbajo);
         document.getElementById('btnBuscar').addEventListener('click', buscarEventos);
         document.getElementById('btnLimpiar').addEventListener('click', limpiarBusqueda);
         document.getElementById('inputBusqueda').addEventListener('keypress', (e) => { if (e.key === 'Enter') buscarEventos(); });
