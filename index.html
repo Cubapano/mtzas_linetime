@@ -13,7 +13,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 16px;
+            padding: 0;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -27,8 +27,8 @@
             padding: 24px 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             max-width: 550px;
-            width: 100%;
-            margin: 0 auto;
+            width: 90%;
+            margin: 20px auto;
         }
         
         h1 {
@@ -85,6 +85,24 @@
         
         .btn-icono:active {
             transform: scale(0.95);
+        }
+        
+        /* Mensaje de filtrado - FUERA del cuadro de descripción */
+        .filtro-mensaje {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 8px 16px;
+            border-radius: 30px;
+            margin: 0 0 15px 0;
+            font-size: 0.85em;
+            text-align: center;
+            display: inline-block;
+            width: auto;
+        }
+        
+        .filtro-container {
+            text-align: center;
+            margin-bottom: 10px;
         }
         
         /* Selector de 3 fechas */
@@ -169,7 +187,7 @@
             font-size: 0.9em;
         }
         
-        /* === CONTENEDOR DE DETALLE CON ALTURA FIJA === */
+        /* Contenedor de detalle con altura fija */
         .detalle-wrapper {
             min-height: 180px;
             margin: 20px 0 15px;
@@ -178,15 +196,12 @@
         .detalle-evento {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
             border-radius: 24px;
             animation: aparecer 0.25s ease;
-            text-align: center;
             height: 180px;
             overflow-y: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            /* IMPORTANTE: Padding interno para que el texto no quede pegado */
+            padding: 20px 18px;
         }
         
         /* Scroll personalizado dentro del detalle */
@@ -225,16 +240,6 @@
             font-size: 0.85em;
         }
         
-        .resultado-busqueda {
-            background: #e3f2fd;
-            color: #1976d2;
-            padding: 8px 16px;
-            border-radius: 30px;
-            margin-bottom: 15px;
-            font-size: 0.85em;
-            text-align: center;
-        }
-        
         .error {
             color: #c62828;
             padding: 20px;
@@ -247,13 +252,15 @@
         @media (max-width: 480px) {
             .contenedor {
                 padding: 16px;
+                width: 95%;
+                margin: 10px auto;
             }
             .fecha-item {
                 padding: 12px 16px;
             }
             .detalle-evento {
                 height: 160px;
-                padding: 16px;
+                padding: 16px 14px;
             }
             .detalle-wrapper {
                 min-height: 160px;
@@ -268,13 +275,21 @@
             }
         }
         
-        /* Tablets y pantallas medianas */
+        /* Tablets */
         @media (min-width: 481px) and (max-width: 768px) {
             .detalle-evento {
                 height: 200px;
+                padding: 22px 20px;
             }
             .detalle-wrapper {
                 min-height: 200px;
+            }
+        }
+        
+        /* Ajuste para pantallas muy altas */
+        @media (min-height: 800px) {
+            .contenedor {
+                margin: 30px auto;
             }
         }
     </style>
@@ -290,6 +305,9 @@
             <button id="btnLimpiar" class="btn-icono" title="Limpiar">✖</button>
         </div>
         
+        <!-- Mensaje de filtrado (FUERA del cuadro morado) -->
+        <div id="filtroMensaje" class="filtro-container"></div>
+        
         <!-- Selector de 3 fechas -->
         <div class="selector-tres">
             <button id="btnUp" class="btn-nav-up" title="Anterior">▲</button>
@@ -303,7 +321,7 @@
             <button id="btnDown" class="btn-nav-down" title="Siguiente">▼</button>
         </div>
         
-        <!-- Detalle con altura fija -->
+        <!-- Detalle con altura fija y padding interno -->
         <div class="detalle-wrapper" id="detalleWrapper">
             <div class="detalle-evento" id="detalleEvento">
                 <div class="detalle-descripcion">Cargando...</div>
@@ -407,20 +425,22 @@
                 bottomDiv.style.opacity = '0.3';
             }
             
-            // Actualizar detalle (solo descripción) - SIN cambiar tamaño
+            // Actualizar mensaje de filtrado (FUERA del cuadro morado)
+            const filtroContainer = document.getElementById('filtroMensaje');
+            if (modoBusqueda) {
+                filtroContainer.innerHTML = `<div class="filtro-mensaje">🔍 ${eventosFiltrados.length} resultado(s) para: "${textoBusqueda}"</div>`;
+            } else {
+                filtroContainer.innerHTML = '';
+            }
+            
+            // Actualizar detalle (dentro del cuadro morado, con padding ya aplicado en CSS)
             const detalleDiv = document.getElementById('detalleEvento');
             const extraDiv = document.getElementById('extraInfo');
             
-            let html = '';
-            if (modoBusqueda) {
-                html += `<div class="resultado-busqueda" style="margin-bottom: 12px;">🔍 ${eventosFiltrados.length} resultado(s): "${textoBusqueda}"</div>`;
-            }
-            html += `<div class="detalle-descripcion">📖 ${eventoActual.EFEMERIDE}</div>`;
-            detalleDiv.innerHTML = html;
-            
+            detalleDiv.innerHTML = `<div class="detalle-descripcion">📖 ${eventoActual.EFEMERIDE}</div>`;
             extraDiv.innerHTML = `${modoBusqueda ? 'Resultado ' : 'Evento '} ${indiceActual + 1} de ${eventosFiltrados.length}`;
             
-            // Scroll automático al inicio del detalle (opcional)
+            // Scroll automático al inicio del detalle
             detalleDiv.scrollTop = 0;
         }
         
@@ -474,6 +494,7 @@
                 document.getElementById('fechaCenter').textContent = '---';
                 document.getElementById('fechaBottom').textContent = '---';
                 document.getElementById('extraInfo').innerHTML = '';
+                document.getElementById('filtroMensaje').innerHTML = `<div class="filtro-mensaje">🔍 No hay resultados para: "${textoBusqueda}"</div>`;
                 return;
             }
             
