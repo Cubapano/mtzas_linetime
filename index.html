@@ -26,7 +26,7 @@
             border-radius: 32px;
             padding: 24px 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 500px;
+            max-width: 550px;
             width: 100%;
             margin: 0 auto;
         }
@@ -87,7 +87,7 @@
             transform: scale(0.95);
         }
         
-        /* ===== SELECTOR DE 3 FECHAS ===== */
+        /* Selector de 3 fechas */
         .selector-tres {
             margin: 20px 0 10px;
             display: flex;
@@ -95,8 +95,7 @@
             align-items: center;
         }
         
-        /* Botón arriba - flecha centrada */
-        .btn-nav-up {
+        .btn-nav-up, .btn-nav-down {
             background: #667eea;
             color: white;
             border: none;
@@ -107,13 +106,20 @@
             cursor: pointer;
             transition: all 0.2s ease;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .btn-nav-up:active {
+        .btn-nav-up {
+            margin-bottom: 8px;
+        }
+        
+        .btn-nav-down {
+            margin-top: 8px;
+        }
+        
+        .btn-nav-up:active, .btn-nav-down:active {
             transform: scale(0.95);
         }
         
@@ -140,7 +146,6 @@
             border-bottom: none;
         }
         
-        /* Fecha superior (difuminada) */
         .fecha-item.top {
             background: #f0f0f0;
             opacity: 0.5;
@@ -148,7 +153,6 @@
             font-size: 0.9em;
         }
         
-        /* Fecha central (ACTIVA - destacada) */
         .fecha-item.center {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -158,7 +162,6 @@
             font-weight: bold;
         }
         
-        /* Fecha inferior (difuminada) */
         .fecha-item.bottom {
             background: #f0f0f0;
             opacity: 0.5;
@@ -166,53 +169,53 @@
             font-size: 0.9em;
         }
         
-        /* Botón abajo - flecha centrada */
-        .btn-nav-down {
-            background: #667eea;
+        /* === CONTENEDOR DE DETALLE CON ALTURA FIJA === */
+        .detalle-wrapper {
+            min-height: 180px;
+            margin: 20px 0 15px;
+        }
+        
+        .detalle-evento {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border: none;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            font-size: 1.8em;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            margin-top: 8px;
+            padding: 20px;
+            border-radius: 24px;
+            animation: aparecer 0.25s ease;
+            text-align: center;
+            height: 180px;
+            overflow-y: auto;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .btn-nav-down:active {
-            transform: scale(0.95);
+        /* Scroll personalizado dentro del detalle */
+        .detalle-evento::-webkit-scrollbar {
+            width: 4px;
         }
-        
-        /* Detalle del evento (solo descripción) */
-        .detalle-evento {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 28px 20px;
-            border-radius: 24px;
-            margin: 20px 0 15px;
-            animation: aparecer 0.3s ease;
-            text-align: center;
+        .detalle-evento::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+        }
+        .detalle-evento::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.5);
+            border-radius: 4px;
         }
         
         @keyframes aparecer {
             from {
                 opacity: 0;
-                transform: translateY(10px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
         
         .detalle-descripcion {
-            font-size: 1.15em;
+            font-size: 1.1em;
             line-height: 1.5;
+            margin: 0;
+            width: 100%;
         }
         
         .contador-info {
@@ -249,7 +252,11 @@
                 padding: 12px 16px;
             }
             .detalle-evento {
-                padding: 20px 16px;
+                height: 160px;
+                padding: 16px;
+            }
+            .detalle-wrapper {
+                min-height: 160px;
             }
             .detalle-descripcion {
                 font-size: 1em;
@@ -258,6 +265,16 @@
                 width: 48px;
                 height: 48px;
                 font-size: 1.5em;
+            }
+        }
+        
+        /* Tablets y pantallas medianas */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .detalle-evento {
+                height: 200px;
+            }
+            .detalle-wrapper {
+                min-height: 200px;
             }
         }
     </style>
@@ -278,23 +295,19 @@
             <button id="btnUp" class="btn-nav-up" title="Anterior">▲</button>
             
             <div class="fechas-lista" id="fechasLista">
-                <div class="fecha-item top" id="fechaTop">
-                    ...
-                </div>
-                <div class="fecha-item center" id="fechaCenter">
-                    ...
-                </div>
-                <div class="fecha-item bottom" id="fechaBottom">
-                    ...
-                </div>
+                <div class="fecha-item top" id="fechaTop">...</div>
+                <div class="fecha-item center" id="fechaCenter">...</div>
+                <div class="fecha-item bottom" id="fechaBottom">...</div>
             </div>
             
             <button id="btnDown" class="btn-nav-down" title="Siguiente">▼</button>
         </div>
         
-        <!-- Detalle del evento (solo descripción) -->
-        <div id="detalleContainer">
-            <div class="detalle-evento" style="text-align:center; padding:30px;">Cargando...</div>
+        <!-- Detalle con altura fija -->
+        <div class="detalle-wrapper" id="detalleWrapper">
+            <div class="detalle-evento" id="detalleEvento">
+                <div class="detalle-descripcion">Cargando...</div>
+            </div>
         </div>
         
         <div id="extraInfo" class="contador-info"></div>
@@ -315,7 +328,7 @@
                 eventosOriginales = await respuesta.json();
                 
                 if (!eventosOriginales || eventosOriginales.length === 0) {
-                    document.getElementById('detalleContainer').innerHTML = '<div class="error">No hay eventos</div>';
+                    document.getElementById('detalleEvento').innerHTML = '<div class="error">No hay eventos</div>';
                     return;
                 }
                 
@@ -332,7 +345,7 @@
                 actualizarVista();
                 
             } catch (error) {
-                document.getElementById('detalleContainer').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
+                document.getElementById('detalleEvento').innerHTML = `<div class="error">❌ Error: ${error.message}</div>`;
             }
         }
         
@@ -353,20 +366,6 @@
             if (mesNumero === 0) return `${anio}`;
             const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
             return `${meses[mesNumero-1]} ${anio}`;
-        }
-        
-        function formatearFechaLegible(fechaISO) {
-            const partes = fechaISO.split('-');
-            const anio = parseInt(partes[0]);
-            const mesNumero = parseInt(partes[1]);
-            const diaNumero = parseInt(partes[2]);
-            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
-                          'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-            
-            if (mesNumero === 0 && diaNumero === 0) return `Año ${anio}`;
-            if (diaNumero === 0 && mesNumero >= 1) return `${meses[mesNumero-1]} de ${anio}`;
-            if (diaNumero >= 1 && mesNumero >= 1) return `${diaNumero} de ${meses[mesNumero-1]} de ${anio}`;
-            return `${anio}`;
         }
         
         function obtenerEventoPorIndice(indice) {
@@ -408,20 +407,21 @@
                 bottomDiv.style.opacity = '0.3';
             }
             
-            // Actualizar detalle (solo descripción)
+            // Actualizar detalle (solo descripción) - SIN cambiar tamaño
+            const detalleDiv = document.getElementById('detalleEvento');
+            const extraDiv = document.getElementById('extraInfo');
+            
             let html = '';
             if (modoBusqueda) {
-                html += `<div class="resultado-busqueda">🔍 ${eventosFiltrados.length} resultado(s): "${textoBusqueda}"</div>`;
+                html += `<div class="resultado-busqueda" style="margin-bottom: 12px;">🔍 ${eventosFiltrados.length} resultado(s): "${textoBusqueda}"</div>`;
             }
-            html += `
-                <div class="detalle-evento">
-                    <div class="detalle-descripcion">📖 ${eventoActual.EFEMERIDE}</div>
-                </div>
-                <div class="contador-info">
-                    ${modoBusqueda ? 'Resultado ' : 'Evento '} ${indiceActual + 1} de ${eventosFiltrados.length}
-                </div>
-            `;
-            document.getElementById('detalleContainer').innerHTML = html;
+            html += `<div class="detalle-descripcion">📖 ${eventoActual.EFEMERIDE}</div>`;
+            detalleDiv.innerHTML = html;
+            
+            extraDiv.innerHTML = `${modoBusqueda ? 'Resultado ' : 'Evento '} ${indiceActual + 1} de ${eventosFiltrados.length}`;
+            
+            // Scroll automático al inicio del detalle (opcional)
+            detalleDiv.scrollTop = 0;
         }
         
         function moverArriba() {
@@ -469,10 +469,11 @@
             }
             
             if (eventosFiltrados.length === 0) {
-                document.getElementById('detalleContainer').innerHTML = `<div class="error">🔍 No se encontró "${textoBusqueda}"</div>`;
+                document.getElementById('detalleEvento').innerHTML = `<div class="detalle-descripcion" style="text-align:center;">🔍 No se encontró "${textoBusqueda}"</div>`;
                 document.getElementById('fechaTop').textContent = '---';
                 document.getElementById('fechaCenter').textContent = '---';
                 document.getElementById('fechaBottom').textContent = '---';
+                document.getElementById('extraInfo').innerHTML = '';
                 return;
             }
             
