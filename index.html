@@ -44,10 +44,12 @@
             display: flex;
             gap: 10px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         #inputBusqueda {
-            flex: 1;
+            flex: 2;
+            min-width: 180px;
             padding: 14px 16px;
             font-size: 16px;
             border: 2px solid #e0e0e0;
@@ -87,7 +89,7 @@
             transform: scale(0.95);
         }
         
-        /* Mensaje de filtrado - FUERA del cuadro de descripción */
+        /* Mensaje de filtrado */
         .filtro-mensaje {
             background: #e3f2fd;
             color: #1976d2;
@@ -187,7 +189,7 @@
             font-size: 0.9em;
         }
         
-        /* Contenedor de detalle con altura fija */
+        /* Contenedor de detalle */
         .detalle-wrapper {
             min-height: 180px;
             margin: 20px 0 15px;
@@ -200,11 +202,9 @@
             animation: aparecer 0.25s ease;
             height: 180px;
             overflow-y: auto;
-            /* IMPORTANTE: Padding interno para que el texto no quede pegado */
             padding: 20px 18px;
         }
         
-        /* Scroll personalizado dentro del detalle */
         .detalle-evento::-webkit-scrollbar {
             width: 4px;
         }
@@ -218,12 +218,8 @@
         }
         
         @keyframes aparecer {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .detalle-descripcion {
@@ -231,6 +227,15 @@
             line-height: 1.5;
             margin: 0;
             width: 100%;
+        }
+        
+        /* Estilo para el resaltado en amarillo */
+        .highlight {
+            background-color: #ffeb3b;
+            color: #333;
+            font-weight: bold;
+            padding: 0 2px;
+            border-radius: 4px;
         }
         
         .contador-info {
@@ -275,7 +280,6 @@
             }
         }
         
-        /* Tablets */
         @media (min-width: 481px) and (max-width: 768px) {
             .detalle-evento {
                 height: 200px;
@@ -286,7 +290,6 @@
             }
         }
         
-        /* Ajuste para pantallas muy altas */
         @media (min-height: 800px) {
             .contenedor {
                 margin: 30px auto;
@@ -300,12 +303,12 @@
         
         <!-- Buscador -->
         <div class="buscador">
-            <input type="text" id="inputBusqueda" placeholder="Buscar...">
+            <input type="text" id="inputBusqueda" placeholder="Buscar por palabra o fecha... ej: 1693, Octubre, fundación">
             <button id="btnBuscar" class="btn-icono" title="Buscar">🔍</button>
             <button id="btnLimpiar" class="btn-icono" title="Limpiar">✖</button>
         </div>
         
-        <!-- Mensaje de filtrado (FUERA del cuadro morado) -->
+        <!-- Mensaje de filtrado -->
         <div id="filtroMensaje" class="filtro-container"></div>
         
         <!-- Selector de 3 fechas -->
@@ -321,7 +324,7 @@
             <button id="btnDown" class="btn-nav-down" title="Siguiente">▼</button>
         </div>
         
-        <!-- Detalle con altura fija y padding interno -->
+        <!-- Detalle -->
         <div class="detalle-wrapper" id="detalleWrapper">
             <div class="detalle-evento" id="detalleEvento">
                 <div class="detalle-descripcion">Cargando...</div>
@@ -350,7 +353,6 @@
                     return;
                 }
                 
-                // Ordenar por fecha
                 eventosOriginales.sort((a, b) => {
                     const fechaA = parsearFechaParaOrden(a.FECHA);
                     const fechaB = parsearFechaParaOrden(b.FECHA);
@@ -359,7 +361,6 @@
                 
                 eventosFiltrados = [...eventosOriginales];
                 indiceActual = 0;
-                
                 actualizarVista();
                 
             } catch (error) {
@@ -386,6 +387,59 @@
             return `${meses[mesNumero-1]} ${anio}`;
         }
         
+        function formatearFechaLegible(fechaISO) {
+            const partes = fechaISO.split('-');
+            const anio = parseInt(partes[0]);
+            const mesNumero = parseInt(partes[1]);
+            const diaNumero = parseInt(partes[2]);
+            const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
+                          'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            
+            if (mesNumero === 0 && diaNumero === 0) return `Año ${anio}`;
+            if (diaNumero === 0 && mesNumero >= 1) return `${meses[mesNumero-1]} de ${anio}`;
+            if (diaNumero >= 1 && mesNumero >= 1) return `${diaNumero} de ${meses[mesNumero-1]} de ${anio}`;
+            return `${anio}`;
+        }
+        
+        // NUEVA FUNCIÓN: Verificar si un evento coincide con la búsqueda (fecha o texto)
+        function eventoCoincide(evento, busqueda) {
+            if (!busqueda) return true;
+            
+            const busquedaLower = busqueda.toLowerCase();
+            
+            // 1. Buscar en el texto de la efeméride
+            if (evento.EFEMERIDE.toLowerCase().includes(busquedaLower)) {
+                return true;
+            }
+            
+            // 2. Buscar en la fecha (formato legible)
+            const fechaLegible = formatearFechaLegible(evento.FECHA).toLowerCase();
+            if (fechaLegible.includes(busquedaLower)) {
+                return true;
+            }
+            
+            // 3. Buscar directamente en la fecha ISO (ej: "1693", "1693-10")
+            const fechaISO = evento.FECHA.toLowerCase();
+            if (fechaISO.includes(busquedaLower)) {
+                return true;
+            }
+            
+            return false;
+        }
+        
+        // NUEVA FUNCIÓN: Resaltar palabras en el texto
+        function resaltarTexto(texto, busqueda) {
+            if (!busqueda || busqueda.trim() === '') {
+                return texto;
+            }
+            
+            // Escapar caracteres especiales para regex
+            const busquedaEscapada = busqueda.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${busquedaEscapada})`, 'gi');
+            
+            return texto.replace(regex, '<span class="highlight">$1</span>');
+        }
+        
         function obtenerEventoPorIndice(indice) {
             if (indice < 0 || indice >= eventosFiltrados.length) return null;
             return eventosFiltrados[indice];
@@ -394,12 +448,11 @@
         function actualizarVista() {
             if (!eventosFiltrados.length) return;
             
-            // Obtener los 3 eventos
             const eventoAnterior = obtenerEventoPorIndice(indiceActual - 1);
             const eventoActual = eventosFiltrados[indiceActual];
             const eventoSiguiente = obtenerEventoPorIndice(indiceActual + 1);
             
-            // Actualizar fecha superior
+            // Actualizar fechas
             const topDiv = document.getElementById('fechaTop');
             if (eventoAnterior) {
                 topDiv.textContent = formatearFechaCorta(eventoAnterior.FECHA);
@@ -410,11 +463,9 @@
                 topDiv.style.opacity = '0.3';
             }
             
-            // Actualizar fecha central (ACTIVA)
             const centerDiv = document.getElementById('fechaCenter');
             centerDiv.textContent = formatearFechaCorta(eventoActual.FECHA);
             
-            // Actualizar fecha inferior
             const bottomDiv = document.getElementById('fechaBottom');
             if (eventoSiguiente) {
                 bottomDiv.textContent = formatearFechaCorta(eventoSiguiente.FECHA);
@@ -425,7 +476,7 @@
                 bottomDiv.style.opacity = '0.3';
             }
             
-            // Actualizar mensaje de filtrado (FUERA del cuadro morado)
+            // Mensaje de filtrado
             const filtroContainer = document.getElementById('filtroMensaje');
             if (modoBusqueda) {
                 filtroContainer.innerHTML = `<div class="filtro-mensaje">🔍 ${eventosFiltrados.length} resultado(s) para: "${textoBusqueda}"</div>`;
@@ -433,57 +484,32 @@
                 filtroContainer.innerHTML = '';
             }
             
-            // Actualizar detalle (dentro del cuadro morado, con padding ya aplicado en CSS)
+            // Detalle con resaltado
             const detalleDiv = document.getElementById('detalleEvento');
             const extraDiv = document.getElementById('extraInfo');
             
-            detalleDiv.innerHTML = `<div class="detalle-descripcion">📖 ${eventoActual.EFEMERIDE}</div>`;
+            let textoResaltado = eventoActual.EFEMERIDE;
+            if (modoBusqueda && textoBusqueda) {
+                textoResaltado = resaltarTexto(eventoActual.EFEMERIDE, textoBusqueda);
+            }
+            
+            detalleDiv.innerHTML = `<div class="detalle-descripcion">📖 ${textoResaltado}</div>`;
             extraDiv.innerHTML = `${modoBusqueda ? 'Resultado ' : 'Evento '} ${indiceActual + 1} de ${eventosFiltrados.length}`;
             
-            // Scroll automático al inicio del detalle
             detalleDiv.scrollTop = 0;
-        }
-        
-        function moverArriba() {
-            if (indiceActual > 0) {
-                indiceActual--;
-                actualizarVista();
-                animarBoton('up');
-            } else {
-                const btn = document.getElementById('btnUp');
-                btn.style.transform = 'scale(0.9)';
-                setTimeout(() => { btn.style.transform = ''; }, 200);
-            }
-        }
-        
-        function moverAbajo() {
-            if (indiceActual < eventosFiltrados.length - 1) {
-                indiceActual++;
-                actualizarVista();
-                animarBoton('down');
-            } else {
-                const btn = document.getElementById('btnDown');
-                btn.style.transform = 'scale(0.9)';
-                setTimeout(() => { btn.style.transform = ''; }, 200);
-            }
-        }
-        
-        function animarBoton(direccion) {
-            const btn = document.getElementById(direccion === 'up' ? 'btnUp' : 'btnDown');
-            btn.style.transform = 'scale(0.9)';
-            setTimeout(() => { btn.style.transform = ''; }, 150);
         }
         
         function buscarEventos() {
             const input = document.getElementById('inputBusqueda');
-            textoBusqueda = input.value.trim().toLowerCase();
+            textoBusqueda = input.value.trim();
             
             if (textoBusqueda === '') {
                 eventosFiltrados = [...eventosOriginales];
                 modoBusqueda = false;
             } else {
+                // Usar la nueva función de búsqueda que incluye fechas
                 eventosFiltrados = eventosOriginales.filter(evento => 
-                    evento.EFEMERIDE.toLowerCase().includes(textoBusqueda)
+                    eventoCoincide(evento, textoBusqueda)
                 );
                 modoBusqueda = true;
             }
@@ -509,6 +535,34 @@
             textoBusqueda = '';
             indiceActual = 0;
             actualizarVista();
+        }
+        
+        function moverArriba() {
+            if (indiceActual > 0) {
+                indiceActual--;
+                actualizarVista();
+                const btn = document.getElementById('btnUp');
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => { btn.style.transform = ''; }, 150);
+            } else {
+                const btn = document.getElementById('btnUp');
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => { btn.style.transform = ''; }, 200);
+            }
+        }
+        
+        function moverAbajo() {
+            if (indiceActual < eventosFiltrados.length - 1) {
+                indiceActual++;
+                actualizarVista();
+                const btn = document.getElementById('btnDown');
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => { btn.style.transform = ''; }, 150);
+            } else {
+                const btn = document.getElementById('btnDown');
+                btn.style.transform = 'scale(0.9)';
+                setTimeout(() => { btn.style.transform = ''; }, 200);
+            }
         }
         
         // Click en fechas laterales
