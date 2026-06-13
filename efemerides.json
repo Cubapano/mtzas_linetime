@@ -1,12 +1,57 @@
 [
   {
+    "FECHA": "1508-00-00",
+    "EFEMERIDE": "Sebastián de Ocampo en su bojeo a la Isla bordea el litoral norte matancero. Es al parecer la primera vez que un español entra en contacto con la bahía",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1510-00-00",
+    "EFEMERIDE": "Se produce una matanza de españoles en la bahía, liderada por el cacique Guayucayex. Es el primer acto de hostilidad practicado por los nativos contra los conquistadores. El suceso dará nombre a la rada y la comarca",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1513-00-00",
+    "EFEMERIDE": "Recorre la bahía el conquistador Pánfilo de Narváez, al frente de una expedición que le había confiado Diego Velázquez, quien sería el primer Gobernador de la Cuba",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1541-00-00",
+    "EFEMERIDE": "El portus Matancas aparece en diferentes cartografías de la época",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1558-00-00",
+    "EFEMERIDE": "Comienza el reparto de tierras con la entrega del hato de Caneymar a Indes de Gamboa",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1607-00-00",
+    "EFEMERIDE": "En la primer división política-administrativa de la isla, el territorio donde después surgiría la ciudad, queda descrito a la jurisdicción habanera",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1628-09-08",
+    "EFEMERIDE": "El corsario holandés Piet Heyn captura la Flota de la Plata en la bahía matancera",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1681-00-00",
+    "EFEMERIDE": "El Gobernador de Cuba, José Fernández de Córdova, envía a la corona española un plano con la propuesta de fortificar la bahía y fundar la ciudad entre los ríos San Juan y Yumuri",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1682-04-00",
+    "EFEMERIDE": "Se emite Real Cedula que autoriza la fundación de una ciudad y fortaleza alrededor de la bahía de Matanzas",
+    "CERTEZA": "mes_y_año"
+  },
+  {
     "FECHA": "1693-10-10",
-    "EFEMERIDE": "Queda demarcada La Plaza de Armas, hoy Plaza de la Vigia, cuyo frente daba a la bahia",
+    "EFEMERIDE": "Queda demarcada La Plaza de Armas, hoy Plaza de la Vigía, cuyo frente daba a la bahía",
     "CERTEZA": "completa"
   },
   {
     "FECHA": "1693-10-12",
-    "EFEMERIDE": "Las autoridades coloniales dan titulo a la urbe, nacida oficialmente con el nombre de San Carlos y San Severino de Matanzas. Se bendice la primera piedra de la iglesia y se celebra misa aclamando a San Carlos Borromeo como Santo Patrono",
+    "EFEMERIDE": "Las autoridades coloniales dan título a la urbe, nacida oficialmente con el nombre de San Carlos y San Severino de Matanzas. Se bendice la primera piedra de la iglesia y se celebra misa aclamando a San Carlos Borromeo como Santo Patrono. Fue fundada con 30 familias procedentes de Islas Canarias.",
     "CERTEZA": "completa"
   },
   {
@@ -16,13 +61,8 @@
   },
   {
     "FECHA": "1693-10-14",
-    "EFEMERIDE": "Durante dos dias son delineadas las tres primeras calles, la del Rio, la del Medio y la de la Cienaga, hoy Milanes",
+    "EFEMERIDE": "Durante dos días son delineadas las tres primeras calles, la del Rio, la del Medio y la de la Ciénaga, hoy Milanés",
     "CERTEZA": "completa"
-  },
-  {
-    "FECHA": "1720-00-00",
-    "EFEMERIDE": "Se concluye el fuerte El Morrillo como parte del cinturon defensivo de la ciudad",
-    "CERTEZA": "solo_a�o"
   },
   {
     "FECHA": "1694-12-08",
@@ -35,14 +75,444 @@
     "CERTEZA": "completa"
   },
   {
+    "FECHA": "1720-00-00",
+    "EFEMERIDE": "Se concluye el fuerte El Morrillo como parte del cinturón defensivo de la ciudad",
+    "CERTEZA": "solo_año"
+  },
+  {
     "FECHA": "1730-10-19",
-    "EFEMERIDE": "Un huracan devasta gran parte del territorio yumurino y queda destruida la iglesia, por lo que el Santisimo Sacramento y los vasos sagrados son trasladados a la casa de Don Diego Garcia Amoedo",
+    "EFEMERIDE": "Un huracán devasta gran parte del territorio yumurino y queda destruida la iglesia, por lo que el Santísimo Sacramento y los vasos sagrados son trasladados a la casa de Don Diego García Amoedo",
     "CERTEZA": "completa"
   },
   {
-    "FECHA": "1899-01-12",
-    "EFEMERIDE": "Entran a la ciudad las tropas del Ejercito Libertador al mando del Mayor General Pedro Betancourt. Se dirigen a la Plaza de la Vigia donde son vitoreados por el pueblo.",
+    "FECHA": "1734-00-00",
+    "EFEMERIDE": "Bajo la dirección del ingeniero José Ignacio Rodríguez se termina la traza fundamental del Castillo de San Severino.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1736-00-00",
+    "EFEMERIDE": "Se culmina la Plataforma de San Juan en el Castillo de San Severino.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1745-00-00",
+    "EFEMERIDE": "Se da por concluido el Castillo de San Severino.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1748-00-00",
+    "EFEMERIDE": "Finaliza la construcción del fuerte San José de La Vigía, inutilizado desde los años 50 del siglo XIX por el crecimiento de la ciudad y el puerto",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1750-00-00",
+    "EFEMERIDE": "El Ayuntamiento de Matanzas eleva una protesta al Rey contra la Real Compañía de Comercio.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1757-00-00",
+    "EFEMERIDE": "Inaugurado el primer hospital San Juan de Dios.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1758-00-00",
+    "EFEMERIDE": "Se funda la primera cárcel de ciudad",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1762-00-00",
+    "EFEMERIDE": "Al ser tomada La Habana por los ingleses, el comandante Antonio García de Solís al frente del Castillo de San Serverino ordena dinamitar el mismo. Los ingleses se apoderan de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1771-00-00",
+    "EFEMERIDE": "Se establece la primera escuela, dirigida por Pablo García.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1772-00-00",
+    "EFEMERIDE": "Se inicia la recostrucción del castillo de San Severino, guiados por el ingeniero Joaquín de Peramas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1789-00-00",
+    "EFEMERIDE": "Se concluye la recostrucción del castillo de San Severino.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1792-00-00",
+    "EFEMERIDE": "El Ayuntamiento de Matanzas pide que se abra al comercio a este puerto.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1793-00-00",
+    "EFEMERIDE": "Por Real Orden el puerto es habilitado en clase de menor, para el comercio directo con la metrópoli. En 1818, se le concede permiso para comerciar libremente con todas las naciones. Se habilita el puerto de Matanzas para el comercio nacional.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1800-00-00",
+    "EFEMERIDE": "Es trazada la segunda Plaza de Armas hoy Parque de la Libertad",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1805-00-00",
+    "EFEMERIDE": "Abre sus puertas al público el primer teatro.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1807-00-00",
+    "EFEMERIDE": "Se presenta por primera vez en la ciudad Francisco Covarrubias, fundador del teatro cubano",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1817-00-00",
+    "EFEMERIDE": "Delante de Matanzas la fragata Sagunto echó a pique dos buques corsarios, después de dos combates.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1818-00-00",
+    "EFEMERIDE": "Se abre el puerto de Matanzas al extranjero.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1819-00-00",
+    "EFEMERIDE": "El vapor Neptuno empieza a dar viajes entre la Habana y Matanzas, siendo este el primer vapor bajo dominio español.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1821-00-00",
+    "EFEMERIDE": "Es inaugurada la Academia Filarmónica de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1823-00-00",
+    "EFEMERIDE": "La conspiración de los Soles de Bolívar tenía en Matanzas su foco principal.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1824-00-00",
+    "EFEMERIDE": "El oficial español Gaspar Rodríguez con ocho soldados se pronuncia en la Plaza de Matanzas a favor de la Constitución.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1825-00-00",
+    "EFEMERIDE": "Se comienza a remodelar la iglesia fundacional que incluye la edificación de la primera torre de canto por el lado sur a cargo del Julio Sagebien hasta 1829, y es redificada por José Borrel en 1832.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1827-00-00",
+    "EFEMERIDE": "Se inaugura la Diputación Patriótica de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1828-00-00",
+    "EFEMERIDE": "Se establece la Primera Sociedad Filarmónica en esta ciudad. Se inaugura el alumbrado público.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1831-00-00",
+    "EFEMERIDE": "Se publica el primer periódico titulado Diario de Matanzas",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1832-00-00",
+    "EFEMERIDE": "El cólera hace estragos en Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1832-05-14",
+    "EFEMERIDE": "Se termina de construir la iglesia de Pueblo Nuevo.",
     "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1835-00-00",
+    "EFEMERIDE": "Se inaugura la primera biblioteca",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1836-00-00",
+    "EFEMERIDE": "Entre los años 1836 y 1842 se remodela de nuevo la iglesia para adicionar las naves laterales y la torre norte, en la que fue colocado un reloj.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1838-07-24",
+    "EFEMERIDE": "Se inaugura el hospital Sta. Isabel.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1842-00-00",
+    "EFEMERIDE": "Comienza a construirse el Ferrocarril de Matanzas a Sabanilla.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1844-00-00",
+    "EFEMERIDE": "Se establece la Sociedad Gimnástica de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1844-06-28",
+    "EFEMERIDE": "Fusilamiento del poeta Gabriel de la Concepción Valdés, conocido como Plácido, y de otros diez acusados en la explanada frente al hospital acusados de participar en la llamada Conspiración de la Escalera",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1845-00-00",
+    "EFEMERIDE": "Gran incendio en la ciudad que destruye 46 casas en el barrio de la Marina. Empieza a construirse el Ferrocarril de Matanzas a Coliseo, es terminado en 1849.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1846-00-00",
+    "EFEMERIDE": "La iglesia fue de nuevo severamente dañada a causa de un huracán, siendo reconstruida por el Reverendo Fray Jacinto María Martinez.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1850-00-00",
+    "EFEMERIDE": "Abre sus puertas el casino español. En un día se cuentan 80 buques en la bahía de Matanzas, embarcando azúcar producto de abundante zafra de ese año.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1852-00-00",
+    "EFEMERIDE": "Se registra un notable temblor de tierra en un intervalo de tres minutos. Se alumbra la población por medio de gas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1854-00-00",
+    "EFEMERIDE": "El Gobernador de Matanzas impone una fuerte contribución a los vecinos y construye el Palacio de Gobierno.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1855-00-00",
+    "EFEMERIDE": "Terminada la reparación y remodelación de la iglesia a la forma final que tiene en el día de hoy. El alumbrado de gas se instala en la Plaza de Armas y en los portales del Ayuntamiento.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1857-00-00",
+    "EFEMERIDE": "Se establece el Banco San Carlos, bajo la dirección de Dn. Cosme de la Torriente.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1859-00-00",
+    "EFEMERIDE": "Principia la construcción del Mercado de Santo Tomás en la Plaza de este nombre, cual se concluye en 1863 con un costo de 80,000, sustituyendo la anterior estructura de madera. Comienza a prestar servicios el ferrocarril de Guines a Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1860-00-00",
+    "EFEMERIDE": "Empieza a establecerse el telégrafo entre La Habana y Matanzas, el cual se inaugura el 17 de febrero de 1861. Inaugurado el Liceo de Matanzas. Establecida comunicación directa entre el puerto de Matanzas y el de Nueva York.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1861-00-00",
+    "EFEMERIDE": "Celebran los primeros Juegos Florares del Liceo. Se termina el Ferrocarril de la Bahía de la Habana, entre Matanzas y la Estación de Fesser en Regla, comenzó sus trabajos en 1857.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1861-04-17",
+    "EFEMERIDE": "El trabajador de origen asiático Justo Wong descubre mientras trabajaba en la finca de Manuel Santos Pargas, las Cuevas de Bellamar. Fueron bendecidas en 1863 por el Sr. Obispo de la Habana, Dn. Francisco Fleix y Solans.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1862-00-00",
+    "EFEMERIDE": "Comienza a prestar servicios al público la línea telegráfica. Comienzas a prestar servicios al público la línea telegráfica.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1863-00-00",
+    "EFEMERIDE": "Se abre el Gimnasio Normal, bajo la dirección del atleta D. Ramón de la Maza, único Instituto de Cultura Física que estuvo funcionando por más de 40 años.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1863-04-06",
+    "EFEMERIDE": "Inaugurado el Teatro Esteban, después llamado Teatro Sauto con un costo de 120,000, obra dirigida y diseñada por el arquitecto de origen italiano Daniel Dall' Aglio.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1864-10-10",
+    "EFEMERIDE": "Inauguración del Instituto de Aplicación de Matanzas",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1869-00-00",
+    "EFEMERIDE": "Los voluntarios destituyen al Gobernador López Pinto. Los Voluntarios destituyen al Gobernador López Pinto.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1870-00-00",
+    "EFEMERIDE": "Se bendice la Iglesia de San Pedro en Versalles diseñada por el arquitecto italiano Daniel Dall'Aglio, constructor también del Teatro Sauto.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1871-09-15",
+    "EFEMERIDE": "Se clausura el Instituto de Matanzas por las autoridades coloniales en el contexto de la Guerra de los Diez Años.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1872-05-16",
+    "EFEMERIDE": "El acueducto empieza a surtir de agua a la población.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1872-09-02",
+    "EFEMERIDE": "Se inaugura bajo el reinado de Amadeo I el cementerio S. Carlos Borromeo.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1874-12-27",
+    "EFEMERIDE": "se efectúa el Primer Juego Oficial de Pelota entre los equipos Baseball Club de La Habana y Matanzas en el terreno del Palmar de Junco.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1875-12-08",
+    "EFEMERIDE": "Se inaugura la Ermita de Montserrat, construida en las alturas de Simpson por la Junta de Beneficencia Catalana y Balear de Matanzas.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1876-00-00",
+    "EFEMERIDE": "Terminada la exploración de las cuevas de Simpson, su propietario D. Luis Simpson, las ilumina y convierte en atracción turística, conocidas anteriormente por los nombres de Cuevas de Versaja o Balsaga, habían sido descubiertas cien años atrás.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1878-11-04",
+    "EFEMERIDE": "Se inaugura el Puente de la Concordia, proyectado por el Ing. O Celestino del Pandal. En el acto asistió el entonces Capitán General de la Isla de Cuba Arsenio Martínez Campos.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1879-01-01",
+    "EFEMERIDE": "Se estrena el primer Danzón titulado Las Alturas de Simpson, presentado en el Liceo Artístico y Literario, por el músico matancero Miguel Failde",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1880-00-00",
+    "EFEMERIDE": "Entran en el puerto de Matanzas 512 buques 271 norteamericanos, 167 españoles, 62 ingleses, 8 noruegos, 1 argentino, 1 italiano, 1 alemán y 1 holandés, con un total de 271,586 toneladas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1881-04-03",
+    "EFEMERIDE": "Se inaugura en el Palmar de Junco la Exposición Internacional de Matanzas, con secciones de Agricultura, Industria, Ciencia y Bellas Artes, diseñado por el arquitecto Angel Sosa.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1882-01-01",
+    "EFEMERIDE": "Se funda la botica \"La Francesa\" por los Doctores Juan Fermín de Figueroa Velis y Ernesto Triolet Lelievre.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1883-00-00",
+    "EFEMERIDE": "Se celebra en Matanzas el primer Congreso Pedagógico que ha habido en Cuba.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1883-10-01",
+    "EFEMERIDE": "Reapertura del Instituto de Aplicación de Matanzas, clausurado desde 1871.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1886-00-00",
+    "EFEMERIDE": "Se funda el Círculo de la Juventud Liberal de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1887-00-00",
+    "EFEMERIDE": "El Gobierno suspende la velada en Círculo de la Juventud Liberal en el momento en que Srt. Sanguily pronunciaba su discurso sobre el fusilamiento de los estudiantes.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1888-00-00",
+    "EFEMERIDE": "Se crea la Audiencia Criminal de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1892-00-00",
+    "EFEMERIDE": "Se funda el Convento de los Carmelitas Descalzos bajo la advocación de Nuestra Señora del Carmen.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1892-06-11",
+    "EFEMERIDE": "Ocurren grandes inundaciones en la ciudad y quedan destruidos los dos puentes sobre el río San Juan.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1897-00-00",
+    "EFEMERIDE": "Concluyen la edificación del Puente de Bailén, (Calixto García) siendo este el primer puente rígido de súper estructura de acero de una sola luz sobre el río San Juan. Su construcción fue dirigida por el ingeniero D. Bernardo de Grada y Callejas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1898-00-00",
+    "EFEMERIDE": "Desembarca en la bahía de Matanzas la Expedición del Dauntless mandada por Enrique Regueira. El acorazado Nueva York, comandado por el Almirante Sampson, bombardea las fortalezas de Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1898-04-00",
+    "EFEMERIDE": "Embarcaciones norteamericanas bloquean el puerto y bombardean la ciudad",
+    "CERTEZA": "mes_y_año"
+  },
+  {
+    "FECHA": "1899-00-00",
+    "EFEMERIDE": "Entra en Matanzas el Regimiento Massachusetts, Primer Contingente de Voluntarios Americanos al mando del General Sager, relevando a las tropas españolas al cesar la soberanía de España en Cuba. Gobiernan la ciudad y la provincia los revolucionarios cubanos: el Alcalde Alfredo Carnot y Decisle y el Gobernador Pedro Betancourt y Dávalos.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1899-01-00",
+    "EFEMERIDE": "Inicio del periodo de intervención norteamericana hasta 1902",
+    "CERTEZA": "mes_y_año"
+  },
+  {
+    "FECHA": "1899-01-12",
+    "EFEMERIDE": "Entran a la ciudad las tropas del Ejército Libertador al mando del Mayor General Pedro Betancourt. Se dirigen a la Plaza de la Vigía donde son vitoreados por el pueblo.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1900-00-00",
+    "EFEMERIDE": "Inaugurado en la Plaza de la Vigía el Edificio del Cuerpo de Bomberos, relevante exponente del neoclasicismo en Matanzas. Celebran en Matanzas por primera vez, terminada la dominación española, las primeras elecciones populares para elegir Alcalde y Concejales.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1903-00-00",
+    "EFEMERIDE": "Se funda 'La Jarcia' fábrica de cuerdas de henequén por la Compañía Heydrich Raffloer and Co. En la actualidad Empresa de Sogas y Cordeles 'Julian Alemán'. Circula por las calles de Matanzas el primer automóvil.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1904-00-00",
+    "EFEMERIDE": "Se establece el servicio telefónico entre La Habana y Matanzas.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1904-04-08",
+    "EFEMERIDE": "Se inaugura el Puente Giratorio, único en Cuba, en el río San Juan para dar paso al Ferrocarril de Dubrocq.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1909-02-24",
+    "EFEMERIDE": "Es develada la estatua del Apóstol Martí en el Parque de La Libertad.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1912-00-00",
+    "EFEMERIDE": "Es elevado el rango de la iglesia a Catedral.",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1916-08-16",
+    "EFEMERIDE": "Inaugurado el Puente General Silverio Sánchez Figueras, puente de arco superior de hormigón armado y de una sola luz sobre el rio San Juan, donde estuvo el antiguo Puente San Luis. Fue provisionalmente construido de madera para sustituir el destruido en el año 1892.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1916-12-17",
+    "EFEMERIDE": "Comienza a prestar servicio el tranvía eléctrico de Matanzas, proyecto impulsado por el Ferrocarril Eléctrico de Matanzas (FEM).",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1918-10-16",
+    "EFEMERIDE": "Inaugurada la Escuela Normal en la ciudad de Matanzas.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1921-05-21",
+    "EFEMERIDE": "Se inaugura el edificio del Primer Instituto de Segunda Enseñanza.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1923-00-00",
+    "EFEMERIDE": "Ocurre la catástrofe del tren de Hershey con destino a Casa Blanca, donde gran parte de sus pasajeros mueren carbonizados, siendo esta la tragedia más grande en la historia del ferrocarril en el país.",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "1959-01-02",
@@ -50,93 +520,48 @@
     "CERTEZA": "completa"
   },
   {
-    "FECHA": "1960-09-30",
-    "EFEMERIDE": "Se fundan los Comites de Defensa de la Revolucion en la ciudad",
-    "CERTEZA": "completa"
-  },
-  {
-    "FECHA": "1961-01-05",
-    "EFEMERIDE": "Es asesinado Conrado Benitez Garcia, primer maestro voluntario martir como consecuencia de este hecho vil las brigadas de alfabetizadores asumieron su nombre",
-    "CERTEZA": "completa"
-  },
-  {
-    "FECHA": "2009-06-16",
-    "EFEMERIDE": "La UNESCO inaugura en el Castillo de San Severino el Museo de la Ruta del Esclavo",
-    "CERTEZA": "completa"
-  },
-  {
-    "FECHA": "1997-10-07",
-    "EFEMERIDE": "La caravana que conduce los restos mortales de Ernesto Che Guevara y sus compa�eros de guerrilla hasta Santa Clara recorre la ciudad",
-    "CERTEZA": "completa"
+    "FECHA": "1959-11-00",
+    "EFEMERIDE": "Comienza la inscripción voluntaria de los matanceros para integrar las Milicias Nacionales Revolucionarias",
+    "CERTEZA": "mes_y_año"
   },
   {
     "FECHA": "1959-12-23",
-    "EFEMERIDE": "Inaugurada la Emisora Radio 26 en la calle Contreras. Es trasladada posteriormente a su nueva sede en Milanes esquina Guachinango",
+    "EFEMERIDE": "Inaugurada la Emisora Radio 26 en la calle Contreras. Es trasladada posteriormente a su nueva sede en Milanés esquina Guachinango",
     "CERTEZA": "completa"
   },
   {
-    "FECHA": "1993-00-00",
-    "EFEMERIDE": "Se celebra el tricenterario de la fundacion de la ciudad.",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1999-00-00",
-    "EFEMERIDE": "Se celebra en Matanzas el Acto Nacional Conmemorativo por el 26 de Julio",
-    "CERTEZA": "solo_a�o"
-  },
-  {
     "FECHA": "1960-00-00",
-    "EFEMERIDE": "Comienza la creacion de circulos infantiles. Faro de America es la primera de estas instituciones en la ciudad",
-    "CERTEZA": "solo_a�o"
+    "EFEMERIDE": "Comienza la creación de círculos infantiles. Faro de América es la primera de estas instituciones en la ciudad. Se amplía la ciudad con la construcción de nuevos repartos: Reynol García (Pastorita), Camilo Cienfuegos, Armando Mestre (Naranjal), Naranjal Norte, 2 de diciembre, El Cocal, entre otros",
+    "CERTEZA": "solo_año"
   },
   {
-    "FECHA": "1959-11-00",
-    "EFEMERIDE": "Comienza la inscripcion voluntaria de los matanceros para integrar las Milicias Nacionales Revolucionarias",
-    "CERTEZA": "mes_y_a�o"
+    "FECHA": "1960-09-30",
+    "EFEMERIDE": "Se fundan los Comités de Defensa de la Revolución en la ciudad",
+    "CERTEZA": "completa"
   },
   {
-    "FECHA": "1999-00-00",
-    "EFEMERIDE": "Es inaugurado el telecentro TV Yumuri",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "1961-00-00",
+    "EFEMERIDE": "Se constituye oficialmente filial matancera de la Unión de Escritores y Artistas de Cuba",
+    "CERTEZA": "solo_año"
   },
   {
-    "FECHA": "1898-04-00",
-    "EFEMERIDE": "Embarcaciones norteamericanas bloquean el puerto y bombardean la ciudad",
-    "CERTEZA": "mes_y_a�o"
-  },
-  {
-    "FECHA": "1899-01-00",
-    "EFEMERIDE": "Inicio del periodo de intervencion norteamericana hasta 1902",
-    "CERTEZA": "mes_y_a�o"
-  },
-  {
-    "FECHA": "1900-00-00",
-    "EFEMERIDE": "Inaugurado en la Plaza de la Vigia el Edificio del Cuerpo de Bomberos, relevante exponente del neoclasicismo en Matanzas",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1903-00-00",
-    "EFEMERIDE": "Se funda 'La Jarcia' fabrica de cuerdas de henequen por la Compa�ia Heydrich Raffloer and Co. En la actualidad Empresa de Sogas y Cordeles 'Julian Aleman'",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1960-00-00",
-    "EFEMERIDE": "Se amplia la ciudad con la construccion de nuevos repartos: Reynol Garcia (Pastorita), Camilo Cienfuegos, Armando Mestre (Naranjal), Naranjal Norte, 2 de Diciembre, El Cocal, entre otros",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1961-11-22",
-    "EFEMERIDE": "Comienza a publicarse el periodico 'Giron' como organo oficial de Partido Unido de la Revolucion Socialista",
+    "FECHA": "1961-01-05",
+    "EFEMERIDE": "Es asesinado Conrado Benítez García, primer maestro voluntario mártir como consecuencia de este hecho vil las brigadas de alfabetizadores asumieron su nombre",
     "CERTEZA": "completa"
   },
   {
     "FECHA": "1961-08-30",
-    "EFEMERIDE": "Se funda en la ciudad de Federacion de Mujeres Cubanas",
+    "EFEMERIDE": "Se funda en la ciudad de Federación de Mujeres Cubanas",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1961-11-22",
+    "EFEMERIDE": "Comienza a publicarse el periódico 'Girón' como órgano oficial de Partido Unido de la Revolución Socialista",
     "CERTEZA": "completa"
   },
   {
     "FECHA": "1962-02-14",
-    "EFEMERIDE": "Se le concede caracter oficial a la Orquesta de Camara de Matanzas devenida Orquesta Sinfonica de la provincia",
+    "EFEMERIDE": "Se le concede carácter oficial a la Orquesta de Cámara de Matanzas devenida Orquesta Sinfónica de la provincia",
     "CERTEZA": "completa"
   },
   {
@@ -145,198 +570,128 @@
     "CERTEZA": "completa"
   },
   {
-    "FECHA": "1961-00-00",
-    "EFEMERIDE": "Se constituye oficialmente filial matancera de la Union de Escritores y Artistas de Cuba",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1966-00-00",
-    "EFEMERIDE": "Se inicia la fundacion de policlinicos: Samuel Fernandez(Playa), Carlos Verdugo(Pueblo Nuevo), Reynold Garcia(Versalles), Jose Luis Dubrocq y Jose Jacinto Milanes, ambos en el barrio de Matanzas",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1964-00-00",
-    "EFEMERIDE": "Es inagurada la Escuela Politecnica Ernest Thaelman. La primera graduacion, en 1968, conto con la presencia del Comandante en Jefe Fidel Castro",
-    "CERTEZA": "solo_a�o"
-  },
-  {
     "FECHA": "1963-12-01",
-    "EFEMERIDE": "Es constituido el primer seccional de la Union de Jovenes Comunistas en la barriada de Versalles",
+    "EFEMERIDE": "Es constituido el primer seccional de la Unión de Jóvenes Comunistas en la barriada de Versalles",
     "CERTEZA": "completa"
   },
   {
     "FECHA": "1964-00-00",
-    "EFEMERIDE": "Se inicia la ejecucion de importantes transformaciones en la Fabrica de Conformacion de Metales Noel Fernandez (durante 4 a�os)",
-    "CERTEZA": "solo_a�o"
+    "EFEMERIDE": "Es inaugurada la Escuela Politécnica Ernest Thaelman. La primera graduación, en 1968, conto con la presencia del Comandante en Jefe Fidel Castro. Se inicia la ejecución de importantes transformaciones en la Fábrica de Conformación de Metales Noel Fernández (durante 4 años)",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "1965-10-23",
-    "EFEMERIDE": "Se constituye el primer Comite Provincial del Partido Comunista de Cuba (PCC), presidido por Luis Mendez Morejon",
+    "EFEMERIDE": "Se constituye el primer Comité Provincial del Partido Comunista de Cuba (PCC), presidido por Luis Méndez Morejón",
     "CERTEZA": "completa"
   },
   {
-    "FECHA": "1970-04-29",
-    "EFEMERIDE": "Comienzan las producciones del Combinado Lacteo",
-    "CERTEZA": "completa"
-  },
-  {
-    "FECHA": "1970-00-00",
-    "EFEMERIDE": "Es creada la Sala Teatral Milanes. Posteriormente recibe el nombre de El Miron Cubano",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1969-00-00",
-    "EFEMERIDE": "Es fundada la teneria Martires de Ñancahuasu",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "1966-00-00",
+    "EFEMERIDE": "Se inicia la fundación de policlínicos: Samuel Fernández(Playa), Carlos Verdugo (Pueblo Nuevo), Reynold García(Versalles), José Luis Dubrocq y José Jacinto Milanés, ambos en el barrio de Matanzas",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "1968-02-15",
-    "EFEMERIDE": "Se inagura el Archivo Historico Provincial, en la casa donde vivio el poeta Jose Jacinto Milanes",
+    "EFEMERIDE": "Se inaugura el Archivo Histórico Provincial, en la casa donde vivió el poeta José Jacinto Milanés",
     "CERTEZA": "completa"
   },
   {
     "FECHA": "1968-00-00",
-    "EFEMERIDE": "Comienzas las clases de musica, balet y artes plasticas de la Escuela Martires de Bolivia, con sede en la antigua Escuela Normal. Se trasladan posteriormente a la Escuela Elemental de Artes Alfonso Perez Isaac",
-    "CERTEZA": "solo_a�o"
+    "EFEMERIDE": "Comienzas las clases de música, ballet y artes plásticas de la Escuela Mártires de Bolivia, con sede en la antigua Escuela Normal. Se trasladan posteriormente a la Escuela Elemental de Artes Alfonso Perez Isaac",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1969-00-00",
+    "EFEMERIDE": "Es fundada la tenería Mártires de Ñancahuasu",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1970-00-00",
+    "EFEMERIDE": "Es creada la Sala Teatral Milanés. Posteriormente recibe el nombre de El Mirón Cubano",
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1970-04-29",
+    "EFEMERIDE": "Comienzan las producciones del Combinado Lácteo",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1990-00-00",
+    "EFEMERIDE": "Comienza a prestar servicios los consultorios del Médico de la Familia, evidencia de la política social de la Revolución. Se inaugura el Viaducto, vial que facilita la comunicación entre La Habana y Varadero",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "1991-00-00",
-    "EFEMERIDE": "Matanzas es sede, por segunda vez, del Acto Nacional por el 26 de Julio. Asistieron a esta conmemoracion el lider de la Revolucion Fidel Castro y el luchador antiapartheid Nelson Mandela",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1990-00-00",
-    "EFEMERIDE": "Comienza a prestar servicios los consultorios del Medico de la Familia, evidencia de la politica social de la Revolucion",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1990-00-00",
-    "EFEMERIDE": "Se inagura el Viaducto, vial que facilita la comunicacion entre La Habana y Varadero",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1993-00-00",
-    "EFEMERIDE": "Es puesto en funcionamiento parte del Hospital Comandante Faustino Perez",
-    "CERTEZA": "solo_a�o"
+    "EFEMERIDE": "Matanzas es sede, por segunda vez, del Acto Nacional por el 26 de Julio. Asistieron a esta conmemoración el líder de la Revolución Fidel Castro y el luchador antiapartheid Nelson Mandela",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "1992-00-00",
     "EFEMERIDE": "La Empresa Textilera Eddio Teijeiro (Bellotex). antigua Betroma, reinicia sus actividades",
-    "CERTEZA": "solo_a�o"
+    "CERTEZA": "solo_año"
+  },
+  {
+    "FECHA": "1993-00-00",
+    "EFEMERIDE": "Se celebra el tricentenario de la fundación de la ciudad. Es puesto en funcionamiento parte del Hospital Comandante Faustino Perez",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "1994-08-00",
     "EFEMERIDE": "Se funda el Teatro de las Estaciones con sede oficial en la Sala Teatro Pepe Camejo, del Centro Cultural Pelusin del Monte",
-    "CERTEZA": "mes_y_a�o"
+    "CERTEZA": "mes_y_año"
   },
   {
     "FECHA": "1997-08-00",
-    "EFEMERIDE": "Es inagurada la Plaza Catorce Festival, con motivo de ser elegida la ciudad subsede del Festival Mundial de la Juventud y los Estudiantes",
-    "CERTEZA": "mes_y_a�o"
+    "EFEMERIDE": "Es inaugurada la Plaza Catorce Festival, con motivo de ser elegida la ciudad subsede del Festival Mundial de la Juventud y los Estudiantes",
+    "CERTEZA": "mes_y_año"
   },
   {
-    "FECHA": "2011-00-00",
-    "EFEMERIDE": "Es fundada la Orquesta Miguel Failde por un descendiente del creador del Danzon",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "1997-10-07",
+    "EFEMERIDE": "La caravana que conduce los restos mortales de Ernesto Che Guevara y sus compañeros de guerrilla hasta Santa Clara recorre la ciudad",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "1999-00-00",
+    "EFEMERIDE": "Se celebra en Matanzas el Acto Nacional Conmemorativo por el 26 de Julio. Es inaugurado el telecentro TV Yumuri",
+    "CERTEZA": "solo_año"
   },
   {
     "FECHA": "2001-00-00",
     "EFEMERIDE": "Se funda la Escuela de Instructores de Arte, como parte del Programa de la Batalla de Ideas",
-    "CERTEZA": "solo_a�o"
+    "CERTEZA": "solo_año"
   },
   {
-    "FECHA": "2012-00-00",
-    "EFEMERIDE": "El Centro Historico de la Ciudad es declarado Monumento Nacional",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "2016-03-00",
-    "EFEMERIDE": "Comienza a celebrarse el Festival Internacional del Danzon Miguel Failde in Memoriam con frecuencia anual",
-    "CERTEZA": "mes_y_a�o"
-  },
-  {
-    "FECHA": "2018-00-00",
-    "EFEMERIDE": "Es inagurada la nueva sede de Ediciones Aldabon",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1508-00-00",
-    "EFEMERIDE": "Sebastian de Ocampo en su bojeo a la Isla bordea el litoral norte matancero. Es al parecer la primera vez que un espa�ol entra en contacto con la bahia",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1558-00-00",
-    "EFEMERIDE": "Comienza el reparto de tierras con la entrega del hato de Caneymar a Indes de Gamboa",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1541-00-00",
-    "EFEMERIDE": "El portus Matancas aparece en diferentes cartografias de la epoca",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1513-00-00",
-    "EFEMERIDE": "Recorre la bahia el conquistador Panfilo de Narvaez, al frente de una expedicion que le habia confiado Diego Velazquez, quien seria el primer Gobernador de la Cuba",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1510-00-00",
-    "EFEMERIDE": "Se produce una matanza de espa�oles en la bahia, lidereda por el cacique Guayucayex. Es el primer acto de hostilidad practicado por los nativos contra los conquistadores. El suceso dara nombre a la rada y la comarca",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1607-00-00",
-    "EFEMERIDE": "En la primer division politica-administrativa de la isla, el territorio donde despues surgiria la ciudad, queda descrito a la jurisdiccion habanera",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1748-00-00",
-    "EFEMERIDE": "Finaliza la construccion del fuerte San Jose de La Vigia, inutilizado desde los a�os 50 del siglo XIX por el crecimiento de la ciudad y el puerto",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1793-00-00",
-    "EFEMERIDE": "Por Real Orden el perto es habilitado en clase de menor, para el comercio directo con la metropoli. En 1818, se le concede permiso para comerciar libremente con todas las naciones",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1800-00-00",
-    "EFEMERIDE": "Es trazada la segunda Plaza de Armas hoy Parque de la Libertad",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1807-00-00",
-    "EFEMERIDE": "Se presenta por primera vez en la ciudad Francisco Covarrubias, fundador del teatro cubano",
-    "CERTEZA": "solo_a�o"
-  },
-  {
-    "FECHA": "1628-09-08",
-    "EFEMERIDE": "El corzario holandes Piet Heyn captura la Flota de la Plata en la bahia matancera",
+    "FECHA": "2009-06-16",
+    "EFEMERIDE": "La UNESCO inaugura en el Castillo de San Severino el Museo de la Ruta del Esclavo",
     "CERTEZA": "completa"
   },
   {
-    "FECHA": "1682-04-00",
-    "EFEMERIDE": "Se emite Real Cedula que autoriza la fundacion de una ciudad y fortaleza alrededor de la bahia de Matanzas",
-    "CERTEZA": "mes_y_a�o"
+    "FECHA": "2010-02-10",
+    "EFEMERIDE": "Se reinaugura la Ermita de Monserrat luego de varios años de restauración.",
+    "CERTEZA": "completa"
   },
   {
-    "FECHA": "1681-00-00",
-    "EFEMERIDE": "El Gobernador de Cuba, Jose Fernandez de Cordova, envia a la corona espa�ola un plano con la propuerta de fortificar la bahia y fundar la ciudad entre los rios San Juan y Yumuri",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "2011-00-00",
+    "EFEMERIDE": "Es fundada la Orquesta Miguel Failde por un descendiente del creador del Danzón",
+    "CERTEZA": "solo_año"
   },
   {
-    "FECHA": "1862-00-00",
-    "EFEMERIDE": "Comienza a prestar servicios al publico la linea telegrafica.",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "2012-00-00",
+    "EFEMERIDE": "El Centro Histórico de la Ciudad es declarado Monumento Nacional",
+    "CERTEZA": "solo_año"
   },
   {
-    "FECHA": "1869-00-00",
-    "EFEMERIDE": "Los voluntarios destituyen al Gobernador Lopez Pinto.",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "2016-03-00",
+    "EFEMERIDE": "Comienza a celebrarse el Festival Internacional del Danzón Miguel Failde in Memoriam con frecuencia anual",
+    "CERTEZA": "mes_y_año"
   },
   {
-    "FECHA": "1835-00-00",
-    "EFEMERIDE": "Se inagura la primera biblioteca",
-    "CERTEZA": "solo_a�o"
+    "FECHA": "2016-12-10",
+    "EFEMERIDE": "Reabre sus puertas la Catedral luego de una profunda restauración.",
+    "CERTEZA": "completa"
+  },
+  {
+    "FECHA": "2018-00-00",
+    "EFEMERIDE": "Es inaugurada la nueva sede de Ediciones Aldabón",
+    "CERTEZA": "solo_año"
   }
 ]
