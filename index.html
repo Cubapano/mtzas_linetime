@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Línea de Tiempo - Efemérides</title>
+    <title>Línea de Tiempo - Efemérides de Matanzas</title>
     <style>
         * {
             box-sizing: border-box;
@@ -299,7 +299,7 @@
 </head>
 <body>
     <div class="contenedor">
-        <h1>📅 Línea de Tiempo</h1>
+        <h1>📅 Línea de tiempo de Matanzas</h1>
         
         <!-- Buscador -->
         <div class="buscador">
@@ -378,15 +378,34 @@
             return new Date(anio, mes, dia);
         }
         
+        // FUNCIÓN CORREGIDA: Muestra fecha CORTA para los tres items de la lista
         function formatearFechaCorta(fechaISO) {
             const partes = fechaISO.split('-');
             const anio = parseInt(partes[0]);
             const mesNumero = parseInt(partes[1]);
-            if (mesNumero === 0) return `${anio}`;
-            const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-            return `${meses[mesNumero-1]} ${anio}`;
+            const diaNumero = parseInt(partes[2]);
+            
+            const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+            
+            // Caso 1: Fecha completa (día, mes, año) - mostrar día y mes abreviado
+            if (diaNumero >= 1 && diaNumero <= 31 && mesNumero >= 1 && mesNumero <= 12) {
+                return `${diaNumero} ${meses[mesNumero-1]} ${anio}`;
+            }
+            
+            // Caso 2: Solo mes y año
+            if (diaNumero === 0 && mesNumero >= 1 && mesNumero <= 12) {
+                return `${meses[mesNumero-1]} ${anio}`;
+            }
+            
+            // Caso 3: Solo año
+            if (mesNumero === 0 && diaNumero === 0) {
+                return `${anio}`;
+            }
+            
+            return `${anio}`;
         }
         
+        // FUNCIÓN CORREGIDA: Muestra fecha LARGA para el detalle
         function formatearFechaLegible(fechaISO) {
             const partes = fechaISO.split('-');
             const anio = parseInt(partes[0]);
@@ -395,45 +414,44 @@
             const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 
                           'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
             
-            if (mesNumero === 0 && diaNumero === 0) return `Año ${anio}`;
-            if (diaNumero === 0 && mesNumero >= 1) return `${meses[mesNumero-1]} de ${anio}`;
-            if (diaNumero >= 1 && mesNumero >= 1) return `${diaNumero} de ${meses[mesNumero-1]} de ${anio}`;
+            // Caso 1: Fecha completa (día, mes, año)
+            if (diaNumero >= 1 && diaNumero <= 31 && mesNumero >= 1 && mesNumero <= 12) {
+                return `${diaNumero} de ${meses[mesNumero-1]} de ${anio}`;
+            }
+            
+            // Caso 2: Solo mes y año
+            if (diaNumero === 0 && mesNumero >= 1 && mesNumero <= 12) {
+                return `${meses[mesNumero-1]} de ${anio}`;
+            }
+            
+            // Caso 3: Solo año
+            if (mesNumero === 0 && diaNumero === 0) {
+                return `Año ${anio}`;
+            }
+            
             return `${anio}`;
         }
         
-        // NUEVA FUNCIÓN: Verificar si un evento coincide con la búsqueda (fecha o texto)
+        // Función para verificar si un evento coincide con la búsqueda
         function eventoCoincide(evento, busqueda) {
             if (!busqueda) return true;
             
             const busquedaLower = busqueda.toLowerCase();
             
-            // 1. Buscar en el texto de la efeméride
-            if (evento.EFEMERIDE.toLowerCase().includes(busquedaLower)) {
-                return true;
-            }
+            if (evento.EFEMERIDE.toLowerCase().includes(busquedaLower)) return true;
             
-            // 2. Buscar en la fecha (formato legible)
             const fechaLegible = formatearFechaLegible(evento.FECHA).toLowerCase();
-            if (fechaLegible.includes(busquedaLower)) {
-                return true;
-            }
+            if (fechaLegible.includes(busquedaLower)) return true;
             
-            // 3. Buscar directamente en la fecha ISO (ej: "1693", "1693-10")
             const fechaISO = evento.FECHA.toLowerCase();
-            if (fechaISO.includes(busquedaLower)) {
-                return true;
-            }
+            if (fechaISO.includes(busquedaLower)) return true;
             
             return false;
         }
         
-        // NUEVA FUNCIÓN: Resaltar palabras en el texto
         function resaltarTexto(texto, busqueda) {
-            if (!busqueda || busqueda.trim() === '') {
-                return texto;
-            }
+            if (!busqueda || busqueda.trim() === '') return texto;
             
-            // Escapar caracteres especiales para regex
             const busquedaEscapada = busqueda.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const regex = new RegExp(`(${busquedaEscapada})`, 'gi');
             
@@ -452,7 +470,7 @@
             const eventoActual = eventosFiltrados[indiceActual];
             const eventoSiguiente = obtenerEventoPorIndice(indiceActual + 1);
             
-            // Actualizar fechas
+            // Actualizar fechas en la lista (formato corto)
             const topDiv = document.getElementById('fechaTop');
             if (eventoAnterior) {
                 topDiv.textContent = formatearFechaCorta(eventoAnterior.FECHA);
@@ -488,6 +506,9 @@
             const detalleDiv = document.getElementById('detalleEvento');
             const extraDiv = document.getElementById('extraInfo');
             
+            // La fecha ahora se muestra correctamente en formato largo
+            const fechaLegible = formatearFechaLegible(eventoActual.FECHA);
+            
             let textoResaltado = eventoActual.EFEMERIDE;
             if (modoBusqueda && textoBusqueda) {
                 textoResaltado = resaltarTexto(eventoActual.EFEMERIDE, textoBusqueda);
@@ -507,7 +528,6 @@
                 eventosFiltrados = [...eventosOriginales];
                 modoBusqueda = false;
             } else {
-                // Usar la nueva función de búsqueda que incluye fechas
                 eventosFiltrados = eventosOriginales.filter(evento => 
                     eventoCoincide(evento, textoBusqueda)
                 );
